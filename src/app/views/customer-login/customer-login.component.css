@@ -1,0 +1,199 @@
+::ng-deep body, html {    
+    background: url("./../../../assets/Images/courier-service-industry.jpg") rgba(0,0,0,0.6) !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-blend-mode: multiply;
+    min-height: 100vh;
+}
+
+.navbar {
+    position: relative;
+    height: 12%;
+    background-color: #0e1d3b !important;
+    width: 100%;
+    padding-top: 12px;
+}
+
+.navbar .navbar-nav li  a {
+    background: none !important;
+    color: #d1ae8a;
+    display: inline-block;
+    font-size: 18px;
+    line-height: 22px;
+    padding: 10px 15px;
+    position: relative;
+    width: 100%;
+    margin-right: 20px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+.navbar span{
+    height: 40px;
+    width: 40px;
+}
+
+
+
+.form-inline a {
+    color: #134f70 !important;
+    text-decoration: none;
+    font-size: medium !important;
+    font-weight: 400 !important;
+}
+
+.login-container {    
+    position: relative;
+    width: 60%;
+    height: 65%;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0px !important;
+}
+
+.login-intro {
+    background:rgba(0,0,0,0.4);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-blend-mode: multiply;
+    padding-top: 15%;
+    background-position: center;
+}
+
+.login-intro h1 {
+    color: #d5b190;
+    font-family: 'Dancing Script', cursive;
+    font-size: 50px;
+
+}
+
+.cust-login-form {
+    background: #01314b;
+    padding-top: 15%;
+    background-image: linear-gradient(to bottom left, #141635, transparent);
+}
+
+
+.cust-login-form h3 {
+    color: white;
+    font-weight: 350 !important;
+}
+
+::ng-deep .mat-form-field-flex {
+    background-color: transparent !important;
+}
+
+::ng-deep.mat-form-field-label {
+    /*change color of label*/
+    color: rgb(255, 255, 255) !important;
+   }
+
+::ng-deep .mat-focused .mat-form-field-label {
+    /*change color of label*/
+    color: rgb(255, 255, 255) !important;
+   }
+  
+::ng-deep .mat-form-field-underline::before {
+    /*change color of underline*/
+    background-color: rgb(255, 255, 255) !important;
+  } 
+  
+  ::ng-deep.mat-form-field-ripple {
+   /*change color of underline when focused*/
+   background-color: rgb(255, 255, 255) !important;;
+  }
+
+.mat-input-element {
+    color: white;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: white !important;
+}
+
+.otp-button, .otp-button:hover {
+    background-color: #caa684;
+    color: #000204;
+    width: 120px;
+    height: 40px;
+    border-radius: 25px;
+    border: 1px solid #e6c6a9;
+}
+
+.otp-button:disabled {
+    background-color: #919090;
+    color: #000204;
+    width: 120px;
+    height: 40px;
+    border-radius: 25px;
+    border: 1px solid #919090;
+}
+
+::ng-deep .otp-input {
+    background-color: transparent !important;
+    border: 0px !important;
+    border-radius: 0px !important;
+    border-bottom: 1px solid white !important;
+    color: white !important;
+    font-size: 20px !important;
+    margin-bottom: 10px;
+}
+
+.verify-otp-button, .verify-otp-button:hover {
+    background-color: #caa684;
+    color: #000204;
+    width: 120px;
+    height: 40px;
+    border-radius: 25px;
+    border: 1px solid #e6c6a9;
+}
+
+@media screen and (max-width: 480px) {
+
+    .navbar-collapse{
+        position: fixed;
+        top: 12%;
+        width: 100%;
+        background: rgba(0,0,0,0.7);
+        height: 108px;
+    }
+
+    :ng-deep body {
+        background-position: center !important;
+    }
+
+    .login-container {
+        position: relative;
+        width: 87%;
+        height: 75%;
+        top: 5%;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 0 !important;
+        padding: 0px !important;
+    }
+
+    .login-intro h1 {
+        font-size: 48px;
+    }
+
+    .login-intro p {
+        font-size: 18px;
+    }
+
+    .cust-login-form h3 {
+        font-size: 21px;
+    }
+
+    .cust-login-form p {
+        font-size: 12px;
+    }
+
+    .otpDiv h1 {
+        padding-top: 0 !important;
+    }
+}

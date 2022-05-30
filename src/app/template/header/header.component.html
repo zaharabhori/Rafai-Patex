@@ -1,0 +1,51 @@
+<!-- <div class="logo-section">
+    <img src="assets/Images/Patext_logo.jpeg" />
+  </div>
+  <div class="right-section">
+    <div class="user-area dropdown">
+      <span class="dropdown-toggle active">
+        Welcome, {{ UserName | titlecase }}{{ Customer | titlecase }} <img class="user-avatar rounded-circle" 
+        src="assets/Images/admin.jpg" alt="User Avatar" />
+      </span>
+      <p><a (click)="logout()">Logout</a></p>
+      <div class="user-menu">
+        <div class="nav-link" (click)="logout()"><i class="fa fa-power -off"></i>Logout</div>
+      </div>
+    </div>
+  </div> -->
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid justify-content-between">
+        <a class="navbar-brand" href="#"><img src="./../../../assets/Images/final_logo.png"></a>
+        <button (click)="toggleCollapsed()" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarContent" [ngClass]="{'collapse': collapsed, 'navbar-collapse': true}">
+            <div>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/shipment" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Shipment Queue</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/shipment/myque"  routerLinkActive="active">My Queue</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" routerLink="/shipment/unload"  routerLinkActive="active">Unload</a>
+              </li>
+            </ul>
+            </div>
+            <div class="right-section">
+              <div class="user-area dropdown">
+                <span class="dropdown-toggle active logout">
+                  Welcome, {{ UserName | titlecase }}{{ Customer | titlecase }} <img class="user-avatar rounded-circle" 
+                  src="assets/Images/admin.jpg" alt="User Avatar" />
+                </span>
+                <p><a (click)="logout()">Logout</a></p>
+                <div class="user-menu">
+                  <div class="nav-link" (click)="logout()"><i class="fa fa-power -off"></i>Logout</div>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+</nav>

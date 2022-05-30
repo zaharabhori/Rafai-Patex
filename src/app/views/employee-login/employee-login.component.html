@@ -1,0 +1,58 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Patex</a>
+   
+    <form class="form-inline my-2 my-lg-0">
+        <a class="nav-item nav-link " routerLink="/login" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Customer Login</a>
+        <a class="nav-item nav-link" routerLink="/employeelogin" routerLinkActive="active">Employee Login</a>
+      </form>
+</nav>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<div class="login-wraper">
+    <div class="login-container">
+        
+        <div class="form-wraper">
+            <h3>Login</h3>
+            <form class="login100-form validate-form" [formGroup]="loginForm"  novalidate>
+                <div class="form-group">
+                    <span><i class="fa fa-user"></i></span>
+                    <input type="text" placeholder="Mobile No" formControlName="Mobile"
+                        [ngClass]="{'is-invalid': f.Mobile.errors && (f.Mobile.touched || f.Mobile.dirty)}"
+                        class="form-control" required>
+                    <div *ngIf="f.Mobile.errors && (f.Mobile.touched || f.Mobile.dirty)" class="erros-msg">
+                        <div *ngIf="f.Mobile.errors.required">
+                            Please Enter Mobile No.
+                        </div>
+                    </div>
+                    <div *ngIf="f.Mobile.errors && (f.Mobile.touched || f.Mobile.dirty)" class="erros-msg">
+                        <div *ngIf="f.Mobile.errors.maxlength">
+                            Please Enter Valid Mobile No.
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <span><i class="fa fa-lock"></i></span>
+                    <input type="password" placeholder="Password" [ngClass]="{'is-invalid':f.Password.errors && (f.Password.touched || f.Password.dirty)}" 
+                    formControlName="Password" class="form-control" required>
+                    <div *ngIf="f.Password.errors && (f.Password.touched || f.Password.dirty)" class="erros-msg">
+                        <div *ngIf="f.Password.errors.required">
+                                Please enter valid Password.
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <button type="submit" [disabled]="loginForm.invalid" (click)="submitForm()" class="btn btn-primary">Sign In</button>
+                </div>
+               
+            </form>
+        </div>
+        <div class="login-logo">
+            <img src="./../../../assets/Images/Patext_logo.jpeg">
+        </div>
+    </div>
+</div>

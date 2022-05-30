@@ -1,0 +1,14 @@
+<form [formGroup]="LRTrack">
+
+    <div class="heading">Enter Lr Number</div>
+    <div class="form-group row">
+        <input type="text" formControlName="LrId"  class="form-control col-md-6" placeholder="Search.."
+            style="width: 100%; padding: 5px; margin: 15px;">
+            <button class="btn btn-primary" (click)="TrackShipment()" style="margin: 15px;">Track</button>
+    </div>
+   
+  
+    <ag-grid-angular #agGrid style="width: 59%; height: 500px; margin: 0px;" class="ag-theme-alpine" *ngIf="rowData"
+        [rowData]="rowData" [columnDefs]="columnDefs" [pagination]="true" [paginationPageSize]="10">
+    </ag-grid-angular>
+</form>

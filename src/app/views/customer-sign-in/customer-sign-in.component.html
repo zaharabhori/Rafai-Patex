@@ -1,0 +1,106 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Narrow&display=swap" rel="stylesheet">
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+<nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#"><img src="./../../../assets/Images/final_logo.png"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+</nav>
+
+    <div class="login-container">
+
+        <div class="form-wraper">
+            <h1> Customer SignIn</h1>
+
+            <form [formGroup]="addUser" class="login100-form validate-form" novalidate>
+                <div class="form-group">
+                    <span><i class="fa fa-user"></i></span>
+                    <div class="form-group col-sm-12">
+                        <!-- <span class="redmark" style="color: #0e1d3b;">*</span> -->
+                        <label for="firstname" class="col-sm-6 text-left control-label ">First Name :</label>
+                        <input type="text" formControlName="FirstName" class="form-control" Numericonly
+                            numericType="alpha"
+                            [ngClass]="{ 'is-invalid': f.FirstName.errors && (f.FirstName.dirty || f.FirstName.touched) }" />
+                        <div *ngIf="f.FirstName.invalid && (f.FirstName.dirty || f.FirstName.touched)"
+                            class="invalid-feedback">
+                            <div *ngIf="f.FirstName.errors.required">First Name is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-12">
+                        <span class="redmark" style="color: red;"></span>
+                        <label for="lastname" class="col-sm-6 text-left control-label ">Last Name :</label>
+                        <input type="text"  formControlName="LastName"
+                            class="form-control" />
+                    </div>
+                    <div class="form-group col-sm-12">
+                        <span class="redmark" style="color: #0e1d3b;"></span>
+                        <label for="email" class="col-sm-6 text-left control-label ">Email :</label>
+                        <input type="text" formControlName="Email" class="form-control" id="email" email
+                            pattern="^[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                            [ngClass]="{ 'is-invalid': f.Email.errors && (f.Email.dirty || f.Email.touched) }" />
+                        <div *ngIf="f.Email.invalid && (f.Email.dirty || f.Email.touched)" class="invalid-feedback">
+                            <div *ngIf="f.Email.errors.required">EmailID is required</div>
+                            <div *ngIf="f.Email.errors?.pattern">Please Enter a Valid EmailID</div>
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-12">
+                        <!-- <span class="redmark" style="color: #0e1d3b;">*</span> -->
+                        <label for="mobile" class="col-sm-6 text-left control-label ">Mobile No :</label>
+                        <input type="number"  formControlName="Mobile"
+                        
+                            [ngClass]="{'is-invalid': f.Mobile.errors && (f.Mobile.touched || f.Mobile.dirty)}"
+                            class="form-control" required>
+                        <div *ngIf="f.Mobile.errors && (f.Mobile.touched || f.Mobile.dirty)" class="error-pno">
+                            <div *ngIf="f.Mobile.errors.required">
+                                Please Enter Mobile No.
+                            </div>
+                        </div>
+                        <div *ngIf="f.Mobile.errors && (f.Mobile.touched || f.Mobile.dirty)" class="error-pno">
+                            <div *ngIf="f.Mobile.errors.minLength">
+                                Please Enter Valid Mobile No.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group col-sm-12">
+                    <mat-radio-group formControlName="Gender" aria-label="Select an option">
+                        <label for="Gender">Gender</label>
+                        <mat-radio-button value="1">Male</mat-radio-button>
+                        <mat-radio-button value="0">Female</mat-radio-button>
+                    </mat-radio-group>
+                    </div>
+                    <!-- <div class=" row offset-sm-4 form-group col-sm-12">
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" formControlName="Gender"  value="1">
+                        <label class="form-check-label" for="male">Male</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" formControlName="Gender"  value="0">
+                        <label class="form-check-label" for="female">Female</label>
+                      </div>
+                     
+                    </div> -->
+                     
+                </div>
+                <div class="col-sm-12 text-center">
+                    <button  [disabled]="addUser.invalid" class="btn btn-primary" (click)="Save()">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+<app-footer></app-footer>

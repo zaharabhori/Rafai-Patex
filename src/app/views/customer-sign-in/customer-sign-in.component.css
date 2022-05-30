@@ -1,0 +1,178 @@
+::ng-deep body, html {
+    background: url("./../../../assets/Images/courier-service-industry.jpg") rgba(0,0,0,0.6) !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-blend-mode: multiply;
+}
+
+.navbar {
+    height: 12%;
+    background-color: #0e1d3b;
+}
+
+.navbar .navbar-nav li  a {
+    background: none !important;
+    color: #d1ae8a;
+    display: inline-block;
+    font-size: 18px;
+    line-height: 26px;
+    padding: 10px 15px;
+    position: relative;
+    width: 100%;
+    margin-right: 20px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+.form-wraper h1 {
+    text-align: left;
+    margin-bottom: 30px;
+    color: #5d472c;
+    font-family: ui-rounded;
+}
+.form-wraper {
+    background: #b8a692;
+    padding: 50px 40px 80px;
+    border-radius: 0;
+    text-align: center;
+    width: 400px;
+    font-size: 14px;
+    height: 540px;
+}
+.login-container {
+    max-width: 400px;
+    position: relative;
+    margin-top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    
+}
+
+.form-group {
+    margin-bottom: 5px !important;
+}
+
+.form-control {
+    background-color: transparent !important;
+    border-radius: 0;
+    border: none;
+    padding-bottom: 0px;
+    border-bottom: 1px solid #223762;
+    margin-bottom: 27px !important;
+    color: #5d472c;
+    padding-left: 0px;
+    font-size: 14px;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: #5d472c !important;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.form-control.is-invalid {
+    border-color: #916838;
+}
+.form-group input:focus {
+    box-shadow: none;
+    color: #5d472c;
+    border-bottom: 1px solid #6a4215;
+}
+
+.form-group {
+    position: relative;
+}
+.form-group span {
+    position: absolute;
+    left: 7px;
+    top: 5px;
+    font-size: 17px;
+}
+label {
+    float: left;
+    clear: none;
+    display: block;
+    padding-left: 0px !important;
+    margin-bottom: -3px !important;
+    color: #002449;
+    font-size: 17px;
+    font-family: revert;
+    font-weight: 490;
+
+  }
+
+.form-wraper button {
+    width: 100%;
+    border-radius: 22px;
+    background: #00315d;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    margin-bottom: 12px;
+    margin-top: 10px;
+}
+
+.erros-msg, .invalid-feedback {
+    text-align: left;
+    color: #916838;
+    font-size:12px;
+    margin-top: -20px !important;
+    margin-bottom: 10px !important;
+}
+
+.error-pno {
+    text-align: left;
+    color: #916838;
+    font-size:12px;
+    margin-top: -20px !important;
+    margin-bottom: 29px !important;
+}
+
+::ng-deep .mat-radio-label-content{
+    color: #223762;
+    font-size: 17px;
+    font-family: revert;
+    font-weight: 400;
+    padding-left: 5px !important;
+    padding-right: 8px !important;
+}
+
+::ng-deep .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle{
+    border-color:#6a4215; 
+  }
+  
+  ::ng-deep .mat-radio-button.mat-accent .mat-radio-inner-circle{
+    color:#6a4215;
+    background-color:#6a4215 ;
+  }
+  
+  ::ng-deep .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+      background-color:transparent;
+  }
+
+.login-logo img {
+    max-width: 312px;
+}
+
+@media screen and (max-width: 480px) {
+
+    :ng-deep body {
+        background-position: center !important;
+    }
+
+    .login-container {
+        margin-top: 21%;
+    }
+
+    .form-wraper {
+        margin: 0 auto;
+        width: 90%;
+    }
+}

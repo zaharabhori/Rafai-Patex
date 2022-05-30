@@ -1,0 +1,113 @@
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300&display=swap" rel="stylesheet">
+<!-- 
+<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script> -->
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid justify-content-between">
+        <a class="navbar-brand" href="#"><img src="./../../../assets/Images/final_logo.png"></a>
+        <button (click)="toggleCollapsed()" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarContent" [ngClass]="{'collapse': collapsed, 'navbar-collapse': true}">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/login" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Customer Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/login" routerLink="/employeelogin" routerLinkActive="active">Employee Login</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse justify-content-between" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">Disabled</a>
+        </li>
+      </ul>
+      <form class="form-inline mx-sm-4">
+          <div class="input-group">
+          <input class="form-control" placeholder="Search">
+          <button type="submit" class="btn btn-outline mb-2"><i class="fa fa-search fa-1x"></i></button>
+          </div>
+  
+      </form>
+    </div>
+  </nav> -->
+
+
+<div class="row container shadow-lg login-container">
+    <div class="login-intro col-md-6">
+        <div class="overlay">
+        <h1>Welcome to Patex</h1>
+        <p>A one or two line catchy phrase as a part of introduction A one or two line catchy phrase as a part of introduction!!</p>
+        </div>
+    </div>
+    <div class="cust-login-form col-md-6">
+        <div class="form text-center mobileNoDiv" *ngIf="!otpDiv">
+            <h3 style="color: white;"> Enter your mobile number to login</h3>
+            <p>We will send you one time password(OTP)</p>
+            <form [formGroup]="loginForm">
+                <div class="form-group">
+                    <mat-form-field  appearance="fill" class="text-center">
+                        <mat-label>Enter Mobile Number</mat-label>
+                        <input formControlName="Mobile" matInput>
+                        <mat-error *ngIf="f.Mobile.errors && (f.Mobile.touched || f.Mobile.dirty)" class="erros-msg">
+                            <mat-error *ngIf="f.Mobile.errors.maxlength">
+                                Please Enter Valid Mobile No.
+                            </mat-error>
+                        </mat-error>
+                      </mat-form-field>
+                </div>
+                <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary otp-button" (click)="submitForm()">Send OTP</button>
+            </form>
+
+        </div>
+        <div class="form text-center otpDiv" *ngIf="otpDiv">
+            <h1 style="color: white; padding-top: 28px; font-weight: 350; font-size: 25px;">Verification Code</h1>
+            <p>We have sent OTP on the number {{_login.Mobile}}</p>
+            <form>
+                <div class="form-group">
+                    <ng-otp-input (onInputChange)="onOtpChange($event)" [config]="{length:4}"></ng-otp-input>
+                </div>
+                <p>Didn't receive code yet? <b>Resend</b></p>
+                <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary verify-otp-button" (click)="submitOtpForm()">Verify OTP</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>
+
+

@@ -1,0 +1,30 @@
+<div class="heading">Select Branch</div>
+<div class="ng-autocomplete ">
+    <ng-autocomplete [data]="data" [searchKeyword]="keyword" (selected)='selectEvent($event)'
+        (inputChanged)='onChangeSearch($event)' (inputFocused)='onFocused($event)' [itemTemplate]="itemTemplate"
+        [notFoundTemplate]="notFoundTemplate">
+    </ng-autocomplete>
+
+    <ng-template #itemTemplate let-item>
+        <a [innerHTML]="item.Branch"></a>
+    </ng-template>
+
+    <ng-template #notFoundTemplate let-notFound>
+        <div [innerHTML]="notFound"></div>
+    </ng-template>
+    
+</div>
+<br/>
+    <button class="btn btn-primary" (click)="UnloadSelected()" >Unload</button>
+    <ag-grid-angular
+     #agGrid style="width: 100%; height: 500px; margin-top: 10px ;"
+    class="ag-theme-alpine"
+    [rowData]="rowData"
+    [columnDefs]="columnDefs"
+    [pagination]="true"
+    [paginationPageSize]="10"
+    rowSelection="multiple"
+    (rowClicked)='onRowClicked($event)'
+     (gridReady)="onGridReady($event)"
+      (gridSizeChanged)="onGridSizeChanged($event)"
+       ></ag-grid-angular>

@@ -1,0 +1,19 @@
+<!-- <div style="margin-left: 20px; margin-top: 20px;">
+    <button class="btn btn-primary" (click)="rowSelected()" >Selected Rows</button>
+  </div> -->
+
+<ag-grid-angular
+#agGrid style="width: 100%; height: 500px; margin: 20px;"
+    class="ag-theme-alpine"
+    [rowData]="rowData"
+    [columnDefs]="columnDefs"
+    [pagination]="true"
+    [paginationPageSize]="10"
+    
+     rowSelection="multiple"
+     (rowClicked)='onRowClicked($event)'
+     (gridReady)="onGridReady($event)"
+      (gridSizeChanged)="onGridSizeChanged($event)"
+  
+>
+</ag-grid-angular>

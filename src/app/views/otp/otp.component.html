@@ -1,0 +1,34 @@
+
+<div class="login-wraper">
+    <div class="login-container">
+
+        <div class="form-wraper">
+            <h3> OTP Form </h3>
+            <form class="login100-form validate-form" [formGroup]="OTPForm" novalidate>
+                <div class="form-group">
+                    <span><i class="fa fa-user"></i></span>
+                    <input type="text" placeholder="OTP No" formControlName="OTP"
+                        [ngClass]="{'is-invalid': o.OTP.errors && (o.OTP.touched || o.OTP.dirty)}"
+                        class="form-control" required>
+                    <div *ngIf="o.OTP.errors && (o.OTP.touched || o.OTP.dirty)" class="erros-msg">
+                        <div *ngIf="o.OTP.errors.required">
+                            Please Enter OTP No.
+                        </div>
+                    </div>
+                    <div *ngIf="o.OTP.errors && (o.OTP.touched || o.OTP.dirty)" class="erros-msg">
+                        <div *ngIf="o.OTP.errors.maxlength">
+                            Please Enter Valid OTP No.
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <button type="submit" [disabled]="OTPForm.invalid" (click)="submitForm()"
+                        class="btn btn-primary">Validate</button>
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+</div>

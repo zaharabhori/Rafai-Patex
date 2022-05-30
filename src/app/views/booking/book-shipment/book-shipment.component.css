@@ -1,0 +1,241 @@
+.tab-panel {
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 4px;
+  }
+  
+  .nav-tabs > li.open, .member-tabset > .nav-tabs > li:hover {
+    border-bottom: 4px solid #fbcdcf;
+  }
+  
+  .member-tabset > .nav-tabs > li.open > a, .member-tabset > .nav-tabs > li:hover > a {
+    border: 0;
+    background: none !important;
+    color: #333333;
+  }
+  
+  .member-tabset > .nav-tabs > li.open > a > i, .member-tabset > .nav-tabs > li:hover > a > i {
+    color: #a6a6a6;
+  }
+  
+  .member-tabset > .nav-tabs > li.open .dropdown-menu, .member-tabset > .nav-tabs > li:hover .dropdown-menu {
+    margin-top: 0px;
+  }
+  
+  .member-tabset > .nav-tabs > li.active {
+    border-bottom: 4px solid #E95420;
+    position: relative;
+  }
+  
+  .member-tabset > .nav-tabs > li.active > a {
+    border: 0 !important;
+    color: #333333;
+  }
+  
+  .member-tabset > .nav-tabs > li.active > a > i {
+    color: #404040;
+  }
+  
+  .member-tabset > .tab-content {
+    margin-top: -3px;
+    background-color: #fff;
+    border: 0;
+    border-top: 1px solid #eee;
+    padding: 15px 0;
+  }
+
+  .progressbar {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    counter-reset: step;
+    margin: 3rem;
+    margin-bottom: 4rem;
+  }
+
+  
+  .progressbar::before, .progress{
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 4px;
+    width: 100%;
+    background-color: #babfc7;
+    z-index: 1;
+  }
+  
+  .progress {
+    background-color: #00315d;
+    width: 0%;
+  }
+  .progress-step {
+    width: 30px;
+    height: 30px;
+    background-color: #babfc7;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+
+  .progress-step::before {
+    counter-increment: step;
+    content: counter(step);
+    z-index: 2;
+  }
+  
+  .progress-step::after {
+    content: attr(data-title);
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    font-size: 0.85rem;
+    color: black !important;
+    width: 100px;
+    text-align: center;
+  }
+
+  .progress-step-active {
+    background-color: #00315d;
+    color: white;
+    z-index: 3;
+  }
+
+  .multiStepForm-buttons .btn{
+    background-color: #00315d;
+    color: white;
+    margin: 10px;
+  }
+  
+  /* #progressbar {
+    margin-bottom: 30px;
+    overflow: hidden;
+    counter-reset: step;
+    margin-top: 10px;
+  }
+
+  #progressbar::before {
+    content: '';
+    position: absolute;
+    top: 63px;
+    transform: translateY(-50%);
+    height: 4px;
+    width: 100%;
+    background-color: white;
+  }
+
+  #progressbar li {
+    list-style-type: none;
+    text-transform: uppercase;
+    font-size: 9px;
+    width: 20%;
+    float: left;
+    position: relative;
+    letter-spacing: 2px;
+    text-align: center;
+  }
+
+  #progressbar li:before {
+    content: counter(step);
+    counter-increment: step;
+    width: 30px;
+    height: 30px;
+    line-height: 26px;
+    display: block;
+    font-size: 12px;
+    color: #333;
+    background: white;
+    border-radius: 25px;
+    margin: 0 auto 12px auto;
+    padding-top: 4px;
+  }
+
+  #progressbar li:after {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: white;
+    position: absolute;
+    left: -50%;
+    top: 9px;
+    z-index: -1;
+  }
+
+  #progressbar li:first-child:after {
+    content: none;
+  }
+
+  #progressbar li.active:before, #progressbar li.active:after {
+    background: #ee0979;
+    color: white;
+  } */
+
+  fieldset.scheduler-border {
+    border: 1px groove #ddd !important;
+    padding: 0 1.4em 1.4em 1.4em !important;
+    margin: 0 0 1.5em 0 !important;
+    -webkit-box-shadow:  0px 0px 0px 0px #000;
+            box-shadow:  0px 0px 0px 0px #000;
+}
+
+    legend.scheduler-border {
+        font-size: 1.2em !important;
+        font-weight: bold !important;
+        text-align: left !important;
+        width:auto;
+        padding:0 10px;
+        border-bottom:none;
+    }
+
+    .ng-autocomplete {
+      width: 100%;
+      }
+      
+      .ng-autocomplete ::ng-deep .autocomplete-container {
+      box-shadow: none;
+      }
+      
+      .ng-autocomplete ::ng-deep .autocomplete-container ::ng-deep .input-container ::ng-deep input {
+      /* font-size: 0.875rem; */
+      display: block;
+      height: 2.5075rem;
+      padding: 0.475rem 1rem;
+      /* margin-left: -1.0rem; */
+      /* margin-right: -6.0rem; */
+      font-weight: 400;
+      line-height: 1.52857143;
+      color: #495057;
+      border: 1px solid #dde6e9;
+      border-radius: 0.25rem;
+      }
+      
+      .ng-autocomplete ::ng-deep .autocomplete-container ::ng-deep .suggestions-container ::ng-deep .item ::ng-deep .row {
+      padding: 0.5rem 1rem;
+      /* margin-left: -1.0rem; */
+      }
+      
+      .ng-autocomplete ::ng-deep .autocomplete-container ::ng-deep .not-found {
+      border: 0;
+      }
+
+      .erros-msg {
+        color: red;
+        font-size:12px;
+    }
+
+    /* .form-control {
+      border-radius: 0;
+      border: none;
+      border-bottom: 1px solid #ccc;
+      padding-left: 28px;
+  } */
+  .form-control.is-invalid {
+      border-color: #dc3545;
+  }
+ 
+  .form-control.ng-untouched,
+.form-control.ng-valid {
+border-color: #ccc !important;
+}
+  

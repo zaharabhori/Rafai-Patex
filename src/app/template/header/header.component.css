@@ -1,0 +1,43 @@
+.user-menu {
+    display: none;
+}
+
+.navbar {
+    position: relative;
+    height: 12%;
+    background-color: #0e1d3b !important;
+    width: 100%;
+    padding-top: 12px;
+}
+
+.navbar .navbar-nav li  a {
+    background: none !important;
+    color: #d1ae8a;
+    display: inline-block;
+    font-size: 18px;
+    line-height: 22px;
+    padding: 10px 15px;
+    position: relative;
+    width: 100%;
+    margin-right: 20px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+.navbar .navbar-toggler-icon{
+    height: 40px;
+    width: 40px;
+}
+
+.navbar span {
+    color: white;
+}
+
+@media screen and (max-width: 480px) {
+    .navbar-collapse{
+        position: fixed;
+        top: 12%;
+        width: 100%;
+        background: rgba(0,0,0,0.7);
+        height: 108px;
+    }
+}
