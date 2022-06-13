@@ -1,0 +1,16 @@
+@media screen and (max-width: 480px) {
+
+    ::ng-deep .ag-pinned-left-cols-container {
+        min-width: 40% !important;
+    }
+    
+    ::ng-deep .ag-pinned-left-header {
+        background-color: rgb(214, 214, 214s) !important;
+        min-width: 40% !important;
+    }
+    
+    ::ng-deep .lock-pinned {    
+        background-color: rgb(214, 214, 214) !important;
+    }
+    
+    }

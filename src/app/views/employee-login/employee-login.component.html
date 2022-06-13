@@ -1,58 +1,92 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Patex</a>
-   
-    <form class="form-inline my-2 my-lg-0">
-        <a class="nav-item nav-link " routerLink="/login" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Customer Login</a>
-        <a class="nav-item nav-link" routerLink="/employeelogin" routerLinkActive="active">Employee Login</a>
-      </form>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid justify-content-between">
+        <a class="navbar-brand" href="#"><img src="./../../../assets/Images/final_logo.png"></a>
+        <button (click)="toggleDown()" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarContent" [ngClass]="{'collapse': collapsed, 'navbar-collapse': true}">
+            <ul class="navbar-nav mb-2 mb-lg-0 ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/login" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Customer Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/login" routerLink="/employeelogin" routerLinkActive="active">Employee Login</a>
+                </li>
+            </ul>
+        </div>
+    </div>
 </nav>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300&display=swap" rel="stylesheet">
 
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-<div class="login-wraper">
-    <div class="login-container">
-        
-        <div class="form-wraper">
-            <h3>Login</h3>
-            <form class="login100-form validate-form" [formGroup]="loginForm"  novalidate>
-                <div class="form-group">
-                    <span><i class="fa fa-user"></i></span>
-                    <input type="text" placeholder="Mobile No" formControlName="Mobile"
-                        [ngClass]="{'is-invalid': f.Mobile.errors && (f.Mobile.touched || f.Mobile.dirty)}"
-                        class="form-control" required>
-                    <div *ngIf="f.Mobile.errors && (f.Mobile.touched || f.Mobile.dirty)" class="erros-msg">
-                        <div *ngIf="f.Mobile.errors.required">
-                            Please Enter Mobile No.
-                        </div>
-                    </div>
-                    <div *ngIf="f.Mobile.errors && (f.Mobile.touched || f.Mobile.dirty)" class="erros-msg">
-                        <div *ngIf="f.Mobile.errors.maxlength">
-                            Please Enter Valid Mobile No.
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <span><i class="fa fa-lock"></i></span>
-                    <input type="password" placeholder="Password" [ngClass]="{'is-invalid':f.Password.errors && (f.Password.touched || f.Password.dirty)}" 
-                    formControlName="Password" class="form-control" required>
-                    <div *ngIf="f.Password.errors && (f.Password.touched || f.Password.dirty)" class="erros-msg">
-                        <div *ngIf="f.Password.errors.required">
-                                Please enter valid Password.
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <button type="submit" [disabled]="loginForm.invalid" (click)="submitForm()" class="btn btn-primary">Sign In</button>
-                </div>
-               
-            </form>
-        </div>
-        <div class="login-logo">
-            <img src="./../../../assets/Images/Patext_logo.jpeg">
+<div class="row container shadow-lg">
+    <div class="login-intro col-md-6">
+        <div class="overlay">
+        <h1 align = "center">Welcome to Patex</h1>
+        <br>
+        <p align = "center">* We provide Safe and Contactless Doorstep delivery! *</p>
         </div>
     </div>
+
+    <div class="emp-login-form col-md-6">
+        <div class="form text-center mobileNoDiv">
+            <h1 style="color: white;"> Enter your Login Credentails</h1>
+            <form [formGroup]="EmpLoginForm">
+                <div class="form-group">
+                    <mat-form-field  appearance="fill" class="text-center">
+                        <mat-label>Enter Mobile Number</mat-label>
+                        <input formControlName="Mobile" matInput>
+                        <mat-error *ngIf="f.Mobile.errors && (f.Mobile.touched || f.Mobile.dirty)" class="erros-msg">
+                            <mat-error *ngIf="f.Mobile.errors.required">
+                                Please Enter Valid Mobile No.
+                            </mat-error>
+                        </mat-error>
+                        <!-- <mat-error *ngIf="f.Mobile.errors && (f.Mobile.touched || f.Mobile.dirty)" class="erros-msg">
+                            <mat-error *ngIf="f.Mobile.errors.maxlength">
+                                Please Enter Valid Mobile No.
+                            </mat-error>
+                        </mat-error> -->
+                      </mat-form-field>
+                </div>
+                <div class="form-group">
+                    <mat-form-field  appearance="fill" class="text-center">
+                        <mat-label>Enter Password</mat-label>
+                        <input matInput #input type="password" formControlName="Password" matInput>
+                        <mat-error *ngIf="f.Password.errors && (f.Password.touched || f.Password.dirty)" class="erros-msg">
+                            <mat-error *ngIf="f.Password.errors.maxlength">
+                                Please Enter Valid Password.
+                            </mat-error>
+                        </mat-error>
+
+                        <!-- <input type="password" placeholder="Password" [ngClass]="{'is-invalid':f.Password.errors && (f.Password.touched || f.Password.dirty)}" 
+                        formControlName="Password" class="form-control" required>
+                        <mat-error *ngIf="f.Password.errors && (f.Password.touched || f.Password.dirty)" class="erros-msg">
+                        <mat-error *ngIf="f.Password.errors.required">
+                                Please enter valid Password.
+                        </mat-error>
+                        </mat-error> -->
+                
+
+
+
+                      </mat-form-field>
+                </div>
+                <button type="submit" [disabled]="EmpLoginForm.invalid" class="btn btn-primary login-button" (click)="submitForm()">Login</button>
+            </form>
+        </div>
+    </div> 
 </div>
+
+
+<!-- <div class="footer text-center">
+    <p>© 2021 Copyright: www.rcpl.com</p>
+</div> -->
+<app-footer></app-footer>

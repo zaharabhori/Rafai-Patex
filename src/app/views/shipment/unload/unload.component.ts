@@ -110,14 +110,14 @@ export class UnloadComponent {
   rowData: any;
   UnloadSelected() {
     // do something with selected item
-    //  this.rowData = [
-    //     { make: 'Toyota', model: 'Celica', price: 35000 ,mobile:9089786745,status:'PickUp-Planned'},
-    //     { make: 'Ford', model: 'Mondeo', price: 32000,mobile:9089786740 ,status:'PickUp-Planned'},
-    //     { make: 'Porsche', model: 'Boxter', price: 72000,mobile:9089789745,status:'PickUp-Planned' },
-    //     { make: 'Toyota', model: 'Celica', price: 35000,mobile:9089788745,status:'PickUp-Done' },
-    //     { make: 'Ford', model: 'Mondeo', price: 32000,mobile:9089786545 ,status:'PickUp-Planned'},
-    //     { make: 'Porsche', model: 'Boxter', price: 72000,mobile:9089548674,status:'PickUp-Done' }
-    // ];
+     this.rowData = [
+        { make: 'Toyota', model: 'Celica', price: 35000 ,mobile:9089786745,status:'PickUp-Planned'},
+        { make: 'Ford', model: 'Mondeo', price: 32000,mobile:9089786740 ,status:'PickUp-Planned'},
+        { make: 'Porsche', model: 'Boxter', price: 72000,mobile:9089789745,status:'PickUp-Planned' },
+        { make: 'Toyota', model: 'Celica', price: 35000,mobile:9089788745,status:'PickUp-Done' },
+        { make: 'Ford', model: 'Mondeo', price: 32000,mobile:9089786545 ,status:'PickUp-Planned'},
+        { make: 'Porsche', model: 'Boxter', price: 72000,mobile:9089548674,status:'PickUp-Done' }
+    ];
   }
 
   selectEvent(item) {

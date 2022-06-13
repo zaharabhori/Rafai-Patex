@@ -13,33 +13,45 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./employee-login.component.css']
 })
 export class EmployeeLoginComponent implements OnInit {
+  data:any;
   login:Login;
-  loginForm: FormGroup;
+  EmpLoginForm: FormGroup;
   Mobile: string;
   Password: string;
   submitted: boolean = false;
   baseurl = environment.devUrl;
-  constructor(private fb: FormBuilder, private myRouter: Router,private api: ApiService,private httpClient: HttpClient) { }
+
+  collapsed = true;
+
+  constructor(private fb: FormBuilder, private myRouter: Router,private api: ApiService,private httpClient: HttpClient, private router:Router ) { }
 
   ngOnInit(): void {
-    this.loginForm = this.fb.group({
+    this.EmpLoginForm = this.fb.group({
       Mobile: ['', [Validators.required, Validators.maxLength(10)]],
       Password: ['', [Validators.required]]
     });
     localStorage.clear();
   }
   get f() {
-    return this.loginForm.controls;
+    return this.EmpLoginForm.controls;
   }
+
+  toggleDown(): void {
+    this.collapsed = !this.collapsed;
+  }
+
+
   ///  Used for Login User
   submitForm(): Observable<any> {
     this.submitted = true;
-    if (this.loginForm.invalid) {
+    if (this.EmpLoginForm.invalid) {
       return;
     }
+
+
    
-    this.login=this.loginForm.value;
-    console.log(this.loginForm.value);
+    this.login=this.EmpLoginForm.value;
+    console.log(this.EmpLoginForm.value);
     
     
     // this.api.Getlogindata(this.login)
@@ -53,9 +65,9 @@ export class EmployeeLoginComponent implements OnInit {
       (resp: any) => {
         console.log(resp);
         debugger
-          if(resp.Password===this.loginForm.controls.Password.value)
+          if(resp.Password===this.EmpLoginForm.controls.Password.value)
           {
-          localStorage.setItem('UserName', this.loginForm.controls.Mobile.value);
+          localStorage.setItem('UserName', this.EmpLoginForm.controls.Mobile.value);
           localStorage.user = JSON.stringify(resp);
           localStorage.setItem('UserID',resp.Id)
           this.myRouter.navigateByUrl('/shipment');
@@ -70,6 +82,14 @@ export class EmployeeLoginComponent implements OnInit {
       }
     );
   }
-  
-  
+//   checkByCredential(username: string, password: string) 
+//  {
+//    this.MyService.checkByCredential(username, password)
+//       .subscribe(users => {
+//            if(users)
+//               this.router.navigate(['homepage/home']);
+//            else
+//               this.router.navigate(['homepage']); 
+//            }   );
+//                 }}
 }

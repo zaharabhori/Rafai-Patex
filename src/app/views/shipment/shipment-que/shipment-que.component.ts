@@ -18,15 +18,15 @@ export class ShipmentQueComponent implements OnInit {
   selectedEntity: any;
   shipmentque:ShipmentQue;
   columnDefs = [
-    { headerName:'Lr Id', field: 'LrId', sortable: true, filter: true, checkboxSelection: true },
-    { headerName:'Date', field: 'Date', sortable: true, filter: true ,
+    { headerName:'Lr Id', field: 'LrId', sortable: true, filter: true, checkboxSelection: true ,resizable: true},
+    { headerName:'Date', field: 'Date', sortable: true, filter: true ,resizable: true,
     cellRenderer: (data) => {
       return  formatDate(data.value, 'dd/MM/yyyy', this.locale);
     }
     },
-    { headerName:'Pickup Point',field: 'Pickuppoint', sortable: true, filter: true },
-    { headerName:'Mobile No',field: 'Mobile', sortable: true, filter: true },
-    { headerName:'Action',
+    { headerName:'Pickup Point',field: 'Pickuppoint', sortable: true, filter: true,resizable: true },
+    { headerName:'Mobile No',field: 'Mobile', sortable: true, filter: true ,resizable: true},
+    { headerName:'Action', resizable: true,
     cellRenderer: params => {
       return `<a (click)="onCellClicked("${params.data}")">Accept</a>`;
            }
