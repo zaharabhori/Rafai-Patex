@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+
 .tab-panel {
     border: 1px solid #ddd;
     padding: 10px;
@@ -49,8 +51,9 @@
     display: flex;
     justify-content: space-between;
     counter-reset: step;
-    margin: 3rem;
-    margin-bottom: 4rem;
+    /* margin: 3rem; */
+    margin-bottom: 7rem;
+    top: 15px;
   }
 
   
@@ -70,8 +73,9 @@
     width: 0%;
   }
   .progress-step {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
     background-color: #babfc7;
     border-radius: 25px;
     display: flex;
@@ -90,8 +94,9 @@
     content: attr(data-title);
     position: absolute;
     top: calc(100% + 0.5rem);
-    font-size: 0.85rem;
-    color: black !important;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color:#341010 !important;
     width: 100px;
     text-align: center;
   }
@@ -106,6 +111,10 @@
     background-color: #00315d;
     color: white;
     margin: 10px;
+    width: 200px;
+    height: 40px;
+    font-size: 18px;
+    border-radius: 35px;
   }
   
   /* #progressbar {
@@ -224,18 +233,284 @@
         font-size:12px;
     }
 
+
+    ::ng-deep .mat-radio-label-content{
+      color: #1f3258 !important;
+      padding-left: 5px !important;
+      padding-right: 8px !important;
+  }
+  
+  ::ng-deep .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle{
+      border-color:#00315d; 
+    }
+    
+    ::ng-deep .mat-radio-button.mat-accent .mat-radio-inner-circle{
+      color: #00315d;
+    background-color: #00315d;
+
+    }
+    
+    ::ng-deep .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element {
+        background-color:transparent;
+    }
+
     /* .form-control {
       border-radius: 0;
       border: none;
       border-bottom: 1px solid #ccc;
       padding-left: 28px;
   } */
+  
+  .form-control {
+    background-color:#f3fbff ;
+  }
+
   .form-control.is-invalid {
-      border-color: #dc3545;
+      border-color: #421010;
   }
  
-  .form-control.ng-untouched,
-.form-control.ng-valid {
-border-color: #ccc !important;
+  .form-control.ng-touched:focus,
+.form-control.ng-valid:valid{
+/* border-color: #ccc !important; */
+border-color: linear-gradient(221deg, rgba(0,73,114,1) 37%, rgba(35,139,184,1) 83%) !important;
+box-shadow: none;
+outline: none;
 }
   
+.card-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width:100%;
+  font-family: "Poppins", sans-serif;
+}
+
+.card-container .card{
+  width:700px;
+  padding: 2em;
+  background: #b2e6f4;
+}
+
+.card-container label{
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+
+/* #d7c9b1 */
+
+.card-container input[type=text],input[type=number],select{
+    height: 40px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    padding-left: 15px;
+    font-size: 16px;
+    border-bottom-width: 4px;
+    transition: all 0.3s ease;
+    border-color: #678c97;
+}
+
+
+
+input::placeholder{
+  opacity: 0.6;
+}
+
+.invalid-feedback{
+  margin-bottom: -30px;
+  margin-top: -2.75rem;
+    font-size: 80%;
+    color: #00315d;
+    padding-left: 5px;
+    font-size: 11.5px;
+    font-weight: 800;
+}
+
+.card-title{
+  font-size: 25px;
+  font-weight: 500;
+  position: relative;
+
+}
+
+.card-header{
+  margin-bottom: 9px;
+  background-color: rgba(255, 255, 255, 0);
+  border-bottom: 1px solid linear-gradient(135deg, blue, purple);
+}
+
+/* .card-header .card-title::before {
+  content: "";
+  position: absolute;
+  height: 3.5px;
+  width: 30px;
+  background: linear-gradient(135deg, blue, purple);
+  left: 0;
+  bottom: 0;
+} */
+
+#btn-gd{
+  margin-left: 1em; 
+  margin-bottom: 20px;
+  margin-top: 15px;
+}
+
+.form-button{
+  margin-left: -13px;
+}
+
+.footer1 {    
+  background-color: transparent;
+}
+
+@media (max-width: 576px){
+  .form-row>.col, .form-row>[class*=col-] {
+    padding-right: 5px;
+    padding-left: 5px;
+    margin-left: 5px;
+    height: 85px;
+} 
+
+  .form-group{
+    margin-left: 14px;
+  }
+
+  .form-row {
+    display: inherit;
+    flex-wrap: wrap;
+    margin-right: -5px;
+    margin-left: -5px;
+  }
+
+  button#btn-gd {
+    height: 32px;
+    margin-left: none;
+    margin-bottom: none;
+  }
+
+  .progress {
+    background-color: #00315d;
+    width: 0%;
+  }
+
+  .progress-step{
+    width: 20px;
+    height: 20px;
+    font-size: 13px;
+    background-color: #babfc7;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .progress-step-active {
+    background-color: #00315d;
+    color: white;
+    z-index: 3;
+  }
+
+  .progressbar{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    counter-reset: step;
+    margin-bottom: 4rem;
+    top: 15px;
+  }
+
+  .progress-step::after {
+    content: none;
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    font-size: 1.4rem;
+    font-weight: 500;
+    color:transparent;
+    width: 100px;
+    text-align: center;
+  }
+
+  .multiStepForm-buttons .btn{
+    background-color: #00315d;
+    color: white;
+    margin: 10px;
+    width: 161px;
+    height: 30px;
+    font-size: 14px;
+    border-radius: 35px;
+  }
+  
+  th{
+    width: 45%;
+  }
+
+  /* td{
+    position: absolute;
+  } */
+
+  /* .table{
+    table-layout: fixed;
+  } */
+
+  .table-bordered tr{
+    display: grid;
+  }
+
+  /* td.cell{
+    display: flex;
+  } */
+
+  /* table, thead, tbody, th, td, tr {
+    display: block;
+  } */
+
+  table.participants-table , table.participants-table thead , table.participants-table tbody, table.participants-table th , 
+  table.participants-table td, table.participants-table tr{
+    display: block;
+  }
+
+  table.participants-table thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  table.participants-table tr {
+    margin: 0 0 1rem 0;
+  }
+    
+  table.participants-table tr:nth-child(odd) {
+    background: #ccc;
+  }
+  
+  table.participants-table td {
+    /* Behave  like a "row" */
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 50%;
+  }
+
+  table.participants-table td:before {
+    /* Now like a table header */
+    position: absolute;
+    /* Top/left values mimic padding */
+    top: 0;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    /* white-space: nowrap; */
+  }
+
+  /*
+  Label the data
+  You could also use a data-* attribute and content for this. That way "bloats" the HTML, this way means you need to keep HTML and CSS in sync. Lea Verou has a clever way to handle with text-shadow.
+  */
+  table.participants-table td:nth-of-type(1):before { content: "Package Description"; }
+  table.participants-table td:nth-of-type(2):before { content: "Weight"; }
+  table.participants-table td:nth-of-type(3):before { content: "Charged Weight"; }
+  table.participants-table td:nth-of-type(4):before { content: "Unit"; }
+  table.participants-table td:nth-of-type(5):before { content: "Rate"; }
+  table.participants-table td:nth-of-type(6):before { content: "Image"; }
+  
+}
