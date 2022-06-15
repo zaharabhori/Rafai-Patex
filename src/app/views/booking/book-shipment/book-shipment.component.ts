@@ -89,7 +89,7 @@ export class BookShipmentComponent implements OnInit {
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       emailAddr: ['', Validators.required],
-      mobileNo: ['', [Validators.required, Validators.maxLength(10)]],
+      mobileNo: ['', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
       gender: ['0'],
       // PaymentType: [ObjectReference,Validators.required],
       fromAddr: ['', Validators.required],
@@ -106,7 +106,7 @@ export class BookShipmentComponent implements OnInit {
       // Consignee: ['', Validators.required],
       PaymentType: this.fb.group({
         Code: [''],
-        Text: ['To Pay', [Validators.required]],
+        Text: ['ToPay', [Validators.required]],
       })
     })
     this.addItems = this.fb.group({
@@ -413,6 +413,7 @@ export class BookShipmentComponent implements OnInit {
     let clickedIndex = $event.index;
     console.log(clickedIndex)
   }
+
   onTabActivated(data: TabDirective) {
     this.activeTab = data;
     if (this.activeTab.heading === "Review & Confirmation") {
