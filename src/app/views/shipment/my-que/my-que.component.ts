@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, Inject, LOCALE_ID, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, Inject, LOCALE_ID, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { AgGridAngular } from 'ag-grid-angular';
 import { ShipmentQue } from 'src/app/Models/ShipmentQue';
@@ -54,10 +54,11 @@ export class MyQueComponent implements OnInit {
   ngOnInit(): void {
     this.GetShipmentQue()
   }
+
   onGridReady(params: GridReadyEvent) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
-    params.api.sizeColumnsToFit();
+    params.api.sizeColumnsToFit();    
   }
   GetShipmentQue() {
     this.shipmentque = new ShipmentQue();
