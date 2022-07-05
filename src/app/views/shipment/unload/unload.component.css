@@ -1,20 +1,39 @@
+
+::ng-deep body{
+    background-color: #e4d1bc  !important;
+}
+
+::ng-deep .ag-header {
+    background-color: #c0a78d !important;
+}
+
+::ng-deep .ag-row {
+    background-color: #d6d6d6 !important;
+}
+
 @media screen and (max-width: 480px) {
 
-    ::ng-deep .ag-pinned-left-cols-container {
-        min-width: 40% !important;
-    }
-    
-    ::ng-deep .ag-pinned-left-header {
-        background-color: rgb(214, 214, 214s) !important;
-        min-width: 40% !important;
-    }
-    
-    ::ng-deep .lock-pinned {    
-        background-color: rgb(214, 214, 214) !important;
-    }
-    
-    }
+::ng-deep .ag-pinned-left-cols-container {
+    min-width: 40% !important;
+}
 
+::ng-deep .ag-pinned-left-header {
+    background-color: rgb(214, 214, 214s) !important;
+    min-width: 40% !important;
+}
+
+::ng-deep .lock-pinned {    
+    background-color: #babfc7 !important;
+}
+
+::ng-deep .ag-header {
+    background-color: #c0a78d !important;
+}
+
+::ng-deep .ag-row {
+    background-color: #d6d6d6 !important;
+}
+}
 /* Search Bar */
 
 /* @media only screen and (min-width : 150px) and (max-width : 780px)

@@ -27,18 +27,18 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-<div class="row container shadow-lg">
+<div class="row container shadow-lg login-container">
     <div class="login-intro col-md-6">
         <div class="overlay">
-        <h1 align = "center">Welcome to Patex</h1>
+        <h1>Welcome to Patex</h1>
         <br>
-        <p align = "center">* We provide Safe and Contactless Doorstep delivery! *</p>
+        <p>* We provide Safe and Contactless Doorstep delivery! *</p>
         </div>
     </div>
 
     <div class="emp-login-form col-md-6">
         <div class="form text-center mobileNoDiv">
-            <h1 style="color: white;"> Enter your Login Credentails</h1>
+            <h3 style="color: white;"> Enter your Login Credentails</h3>
             <form [formGroup]="EmpLoginForm">
                 <div class="form-group">
                     <mat-form-field  appearance="fill" class="text-center">
@@ -77,7 +77,7 @@
 
 
 
-                      </mat-form-field>
+                    </mat-form-field>
                 </div>
                 <button type="submit" [disabled]="EmpLoginForm.invalid" class="btn btn-primary login-button" (click)="submitForm()">Login</button>
             </form>
@@ -89,4 +89,5 @@
 <!-- <div class="footer text-center">
     <p>© 2021 Copyright: www.rcpl.com</p>
 </div> -->
+
 <app-footer></app-footer>

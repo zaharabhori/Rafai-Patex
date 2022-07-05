@@ -18,7 +18,7 @@ export class ShipmentQueComponent implements OnInit {
   selectedEntity: any;
   shipmentque:ShipmentQue;
   columnDefs = [
-    { headerName:'Lr Id', field: 'LrId', sortable: true, filter: true, checkboxSelection: true ,resizable: true},
+    { headerName:'Lr Id', field: 'LrId', pinned : 'left',  lockPinned: true, cellClass: 'lock-pinned',sortable: true, filter: true, checkboxSelection: true ,resizable: true},
     { headerName:'Date', field: 'Date', sortable: true, filter: true ,resizable: true,
     cellRenderer: (data) => {
       return  formatDate(data.value, 'dd/MM/yyyy', this.locale);
