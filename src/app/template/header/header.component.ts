@@ -10,7 +10,9 @@ import { ApiService } from 'src/app/services/api.service';
 export class HeaderComponent implements OnInit {
   UserName = 'Admin';
   Customer = 'Admin';
-  userId:any;
+  userId:any;  
+  collapsed = true;
+
   constructor( public router: Router,private api: ApiService) { }
 
   ngOnInit(): void {
@@ -19,6 +21,11 @@ export class HeaderComponent implements OnInit {
     this.Customer =localStorage.getItem('Mobile');
     
   }
+
+  toggleCollapsed(): void {
+    this.collapsed = !this.collapsed;
+  }
+  
   logout() {
     this.api.logout();
   }
