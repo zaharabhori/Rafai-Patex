@@ -761,18 +761,18 @@
                           [columnDefs]="columnDefs">
                       </ag-grid-angular> -->
 
-                                        <table class="table table-bordered">
-                                            <tr>
-                                                <th>Package Description</th>
-                                                <!-- <th>No of Bags</th> -->
-                                                <th>Weight</th>
-                                                <th>Charged Weight</th>
-                                                <th>Unit</th>
-                                                <th>Rate</th>
-                                                <th width="150px">Image</th>
-                                                <th width="130px">Action</th>
-                                            </tr>
-                                            <tr *ngFor="let i of Itemlist">
+                                                <table class="table table-bordered">
+                                                    <tr>
+                                                        <th>Package<br>Description</th>
+                                                        <!-- <th>No of Bags</th> -->
+                                                        <th>Weight</th>
+                                                        <th>Charged Weight</th>
+                                                        <th>Unit</th>
+                                                        <th>Rate</th>
+                                                        <th width="150px">Image</th>
+                                                        <th width="130px">Action</th>
+                                                    </tr>
+                                                    <tr *ngFor="let i of Itemlist">
 
                                                 <td>{{ i.ItemType.Text}}</td>
                                                 <!-- <td>{{ i.NoOfBags }}</td> -->

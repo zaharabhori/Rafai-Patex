@@ -310,6 +310,10 @@ outline: none;
     border-color: #678c97;
 }
 
+select.form-control:not([size]):not([multiple]) {
+  height: 40px;
+}
+
 
 
 input::placeholder{
