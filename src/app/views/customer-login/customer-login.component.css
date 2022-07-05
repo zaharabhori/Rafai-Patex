@@ -3,8 +3,23 @@
     background-size: cover !important;
     background-repeat: no-repeat !important;
     background-blend-mode: multiply;
-    min-height: 100vh;
 }
+
+.login-page{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-row{
+    flex-grow: 1;
+    display: flex;
+    align-items: flex-end;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 13px;
+}
+  
 
 .navbar {
     position: relative;

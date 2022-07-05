@@ -2,86 +2,93 @@
     <div class="container" style="margin-top: 10px">
         <!-- <tabset class="member-tabset" #memberTabs (selectedTabChange)="onTabChanged($event);">
             <tab heading='Select Shipment Type' (selectTab)="onTabActivated($event)"> -->
-                <div class="panel-body">
-                    <form class="form-horizontal" *ngIf="BookingForm" [formGroup]="BookingForm" novalidate id="formId">
-                        <div class="progressbar">
-                            <div class="progress" id="progress"></div>
-                            <div class="progress-step" [ngClass] = "{'progress-step-active': step > 0 }" data-title="Shipment Type"></div>
-                            <div class="progress-step" [ngClass] = "{'progress-step-active': step > 1 }" data-title="Personal Details"></div>
-                            <div class="progress-step" [ngClass] = "{'progress-step-active': step > 2 }" data-title="Moving From"></div>
-                            <div class="progress-step" [ngClass] = "{'progress-step-active': step > 3 }" data-title="Moving To"></div>
-                            <div class="progress-step" [ngClass] = "{'progress-step-active': step > 4 }" data-title="Goods Description"></div>
-                            <div class="progress-step" [ngClass] = "{'progress-step-active': step > 5 }" data-title="Review and Confirm"></div>
-                        </div>
-                        <fieldset style="min-inline-size: auto" class="card-container" *ngIf="step===1">
-                            <!-- <legend class="scheduler-border">Select Shipment Type</legend> -->
-                            <div class="card">
-                                <header class="card-header ">
-                                    <div class="card-title">Select Shipment Type</div>
-                                </header>
-                                <article class="card-body ">
-                                    <form>
-                                        <div class="form-check ">
-                                            <input class="form-check-input" type="radio"
-                                                formControlName="booking_category" value="Baggage_Booking" checked>
-                                            <label class="form-check-label" for="customRadio1">
-                                                EXCESS /PERSONELL /UNACCOMPANIED BAGGAGE BOOKING
-                                                Starting from Rs.200/- per kg
-                                            </label>
-                                        </div>
-                                        <div class="form-check ">
-                                            <input class="form-check-input" type="radio"
-                                                formControlName="booking_category" value="Cargo_Booking">
-                                            <label class="form-check-label" for="customRadio2">CARGO BOOKING Starting
-                                                from Rs.6/- per kg</label>
-                                        </div>
-                                    </form>
-                                </article>
+        <div class="panel-body">
+            <form class="form-horizontal" *ngIf="BookingForm" [formGroup]="BookingForm" novalidate id="formId">
+                <div class="progressbar">
+                    <div class="progress" id="progress"></div>
+                    <div class="progress-step" [ngClass]="{'progress-step-active': step > 0 }"
+                        data-title="Shipment Type"></div>
+                    <div class="progress-step" [ngClass]="{'progress-step-active': step > 1 }"
+                        data-title="Personal Details"></div>
+                    <div class="progress-step" [ngClass]="{'progress-step-active': step > 2 }" data-title="Moving From">
+                    </div>
+                    <div class="progress-step" [ngClass]="{'progress-step-active': step > 3 }" data-title="Moving To">
+                    </div>
+                    <div class="progress-step" [ngClass]="{'progress-step-active': step > 4 }"
+                        data-title="Goods Description"></div>
+                    <div class="progress-step" [ngClass]="{'progress-step-active': step > 5 }"
+                        data-title="Review and Confirm"></div>
+                </div>
+                <fieldset style="min-inline-size: auto" class="card-container" *ngIf="step===1">
+                    <!-- <legend class="scheduler-border">Select Shipment Type</legend> -->
+                    <div class="card">
+                        <header class="card-header ">
+                            <div class="card-title">Select Shipment Type</div>
+                        </header>
+                        <article class="card-body ">
+                            <form>
+                                <div class="form-check ">
+                                    <input class="form-check-input" type="radio" formControlName="booking_category"
+                                        value="Baggage_Booking" checked>
+                                    <label class="form-check-label" for="customRadio1">
+                                        EXCESS /PERSONELL /UNACCOMPANIED BAGGAGE BOOKING
+                                        Starting from Rs.200/- per kg
+                                    </label>
+                                </div>
+                                <div class="form-check ">
+                                    <input class="form-check-input" type="radio" formControlName="booking_category"
+                                        value="Cargo_Booking">
+                                    <label class="form-check-label" for="customRadio2">CARGO BOOKING Starting
+                                        from Rs.6/- per kg</label>
+                                </div>
+                            </form>
+                        </article>
 
-                            </div>
-                        </fieldset>
-                        <fieldset style="min-inline-size: auto" class="card-container" *ngIf="step===2">
-                            <!-- <legend class="scheduler-border">Personal Details</legend> -->
-                            <div class="card">
-                                <header class="card-header ">
-                                    <div class="card-title">Personal Details</div>
-                                </header>
-                                <article class="card-body">
-                                    <form>
-                                        <div class="form-row">
-                                            <div class="col form-group">
-                                                <label>First name<span class="text-danger">*</span> </label>
-                                                <input type="text" formControlName="firstName" class="form-control" placeholder="First Name"
-                                                                                           
-                                                     [ngClass]="{ 'is-invalid': f.firstName.errors && (f.firstName.dirty || f.firstName.touched) }"
-                                                      />
-                                                                                    
-                                                <div *ngIf="f.firstName.invalid && (f.firstName.dirty || f.firstName.touched)"
-                                                                                            class="invalid-feedback">
-                                                                                            
-                                                    <div *ngIf="f.firstName.errors.required">First Name is required
-                                                    </div>
-                                                                                        
-                                                </div>
-
+                    </div>
+                </fieldset>
+                <fieldset style="min-inline-size: auto" class="card-container" *ngIf="step===2">
+                    <!-- <legend class="scheduler-border">Personal Details</legend> -->
+                    <div class="card">
+                        <header class="card-header ">
+                            <div class="card-title">Personal Details</div>
+                        </header>
+                        <article class="card-body">
+                            <form>
+                                <div class="form-row">
+                                    <div class="col form-group">
+                                        <label>First name<span class="text-danger">*</span> </label>
+                                        <input type="text" formControlName="firstName" class="form-control" placeholder="First
+                                            Name"                                        
+                                             [ngClass]="{ 'is-invalid': f.firstName.errors && (f.firstName.dirty || f.firstName.touched) }"
+                                              />
+                                                                            
+                                        <div *ngIf="f.firstName.invalid && (f.firstName.dirty || f.firstName.touched)"
+                                                                                    class="invalid-feedback">
+                                                                                    
+                                            <div *ngIf="f.firstName.errors.required">First Name is required
                                             </div>
-                                            <!-- form-group end.// -->
-                                            <div class="col form-group">
-                                                <label>Last name<span class="text-danger">*</span></label>
-                                                <input type="text" formControlName="lastName" class="form-control" placeholder="Last Name"
-                                                     [ngClass]="{ 'is-invalid': f.lastName.errors && (f.lastName.dirty || f.lastName.touched) }"
-                                                      />
-                                                 
-                                                <div *ngIf="f.lastName.invalid && (f.lastName.dirty || f.lastName.touched)"
-                                                    class="invalid-feedback">
-                                                     <div *ngIf="f.lastName.errors.required">Last Name is required</div>
-                                                </div>
-
-                                            </div>
-                                            <!-- form-group end.// -->
+                                                                                
                                         </div>
-                                        <!-- form-row end.// -->
-                                        <!-- <div class="form-group">
+
+                                    </div>
+                                    <!-- form-group end.// -->
+                                    <div class="col form-group">
+                                        <label>Last name<span class="text-danger">*</span></label>
+                                        <input type="text" formControlName="lastName" class="form-control" placeholder="Last
+                                            Name"
+                                             [ngClass]="{ 'is-invalid': f.lastName.errors && (f.lastName.dirty || f.lastName.touched) }"
+                                              />
+                                         
+                                        <div *ngIf="f.lastName.invalid && (f.lastName.dirty || f.lastName.touched)"
+                                            class="invalid-feedback">
+                                             <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+                                        </div>
+
+                                    </div>
+                                    <!-- form-group end.// -->
+                                </div>
+                                <!-- form-row end.// -->
+                                <!-- <div class="form-group">
                                             <label>Email address<span class="text-danger">*</span></label>
                                             <input type="text" formControlName="emailAddr" class="form-control" id="email"
                                                                                 pattern="^[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
@@ -98,44 +105,46 @@
                                             </div>
 
                                         </div> -->
-                                        <div class="form-row">
-                                            <div class="col form-group">
-                                                <label>Email address<span class="text-danger">*</span></label>
-                                            <input type="text" formControlName="emailAddr" class="form-control" id="email" placeholder="John.doe@example.com"
-                                                                                pattern="^[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-                                                                                [ngClass]="{ 'is-invalid': f.emailAddr.errors && (f.emailAddr.dirty || f.emailAddr.touched) }"
-                                                  />
-                                                                           
-                                            <div *ngIf="f.emailAddr.invalid && (f.emailAddr.dirty || f.emailAddr.touched)" class="invalid-feedback">
-                                                                                
-                                                <div *ngIf="f.emailAddr.errors.required">EmailID is required</div>
-                                                                                
-                                                <div *ngIf="f.emailAddr.errors?.pattern">Please Enter a Valid EmailID
-                                                </div>
+                                <div class="form-row">
+                                    <div class="col form-group">
+                                        <label>Email address<span class="text-danger">*</span></label>
+                                        <input type="text" formControlName="emailAddr" class="form-control" id="email"
+                                            placeholder="John.doe@example.com"
+                                                                            pattern="^[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                                                                            [ngClass]="{ 'is-invalid': f.emailAddr.errors && (f.emailAddr.dirty || f.emailAddr.touched) }"
+                                              />
+                                                                       
+                                        <div *ngIf="f.emailAddr.invalid && (f.emailAddr.dirty || f.emailAddr.touched)" class="invalid-feedback">
+                                                                            
+                                            <div *ngIf="f.emailAddr.errors.required">EmailID is required</div>
+                                                                            
+                                            <div *ngIf="f.emailAddr.errors?.pattern">Please Enter a Valid EmailID
                                             </div>
-                                                                                
-                                            
-
-                                            </div>
-                                            <!-- form-group end.// -->
-                                            <div class="col form-group">
-                                                <label>Sender Mobile No<span class="text-danger">*</span> </label>
-                                                <input type="text"  formControlName="mobileNo"
-                                                     [ngClass]="{'is-invalid': f.mobileNo.errors && (f.mobileNo.touched || f.mobileNo.dirty)}"
-                                                     class="form-control" placeholder="Mobile No"  required>
-                                                                            
-                                                <div *ngIf="f.mobileNo.invalid && (f.mobileNo.touched || f.mobileNo.dirty)" class="invalid-feedback">
-                                                                                    
-                                                    <div *ngIf="f.mobileNo.errors.required">Invalid Mobile No.</div>
-                                                    <div *ngIf="f.mobileNo.errors.pattern">Please, Enter 10 digit Mobile Number.</div>
-                                                                                
-                                                </div>
-                                            </div>
-                                            <!-- form-group end.// -->
                                         </div>
-                                        <!-- form-group end.// -->
-                                        
-                                        <!-- <div class="form-row">
+                                                                        
+
+
+                                    </div>
+                                    <!-- form-group end.// -->
+                                    <div class="col form-group">
+                                        <label>Sender Mobile No<span class="text-danger">*</span> </label>
+                                        <input type="text"  formControlName="mobileNo"
+                                             [ngClass]="{'is-invalid': f.mobileNo.errors && (f.mobileNo.touched || f.mobileNo.dirty)}"
+                                             class="form-control" placeholder="Mobile No"  required>
+                                                                    
+                                        <div *ngIf="f.mobileNo.invalid && (f.mobileNo.touched || f.mobileNo.dirty)" class="invalid-feedback">
+                                                                            
+                                            <div *ngIf="f.mobileNo.errors.required">Invalid Mobile No.</div>
+                                            <div *ngIf="f.mobileNo.errors.pattern">Please, Enter 10 digit Mobile Number.
+                                            </div>
+                                                                        
+                                        </div>
+                                    </div>
+                                    <!-- form-group end.// -->
+                                </div>
+                                <!-- form-group end.// -->
+
+                                <!-- <div class="form-row">
                                             <div class="col form-group">
                                                 <label>Sender Mobile No<span class="text-danger">*</span> </label>
                                                 <input type="text"  formControlName="mobileNo" pattern="^[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
@@ -160,9 +169,9 @@
                                             </div>
                                         </div> -->
 
-                                        <div class="form-group">
-                                            <div class="form-row">
-                                                <!-- <label>Gender : <span class="text-danger">*</span> </label>
+                                <div class="form-group">
+                                    <div class="form-row">
+                                        <!-- <label>Gender : <span class="text-danger">*</span> </label>
                                                 <div class="form-check-inline">
                                                     <label class="form-check-label">
                                                         <input type="radio" class="form-check-input"
@@ -176,19 +185,19 @@
                                                     </label>
                                                 </div> -->
 
-                                                <mat-radio-group formControlName="gender" aria-label="Select an option">
-                                                    <label for="Gender">Gender</label>
-                                                    <mat-radio-button value="1">Male</mat-radio-button>
-                                                    <mat-radio-button value="0">Female</mat-radio-button>
-                                                </mat-radio-group>
-                                            </div>
+                                        <mat-radio-group formControlName="gender" aria-label="Select an option">
+                                            <label for="Gender">Gender</label>
+                                            <mat-radio-button value="1">Male</mat-radio-button>
+                                            <mat-radio-button value="0">Female</mat-radio-button>
+                                        </mat-radio-group>
+                                    </div>
 
-                                        </div>
+                                </div>
 
-                                        <!-- form-group// -->
-                                        <div class="form-group" formGroupName="PaymentType">
-                                            <div class="form-row">
-                                                <!-- <label>Payment Type : <span class="text-danger">*</span> </label>
+                                <!-- form-group// -->
+                                <div class="form-group" formGroupName="PaymentType">
+                                    <div class="form-row">
+                                        <!-- <label>Payment Type : <span class="text-danger">*</span> </label>
                                                 <div class="form-check-inline">
                                                     <label class="form-check-label">
                                                         <input type="radio" class="form-check-input"
@@ -202,29 +211,29 @@
                                                     </label>
                                                 </div> -->
 
-                                                <mat-radio-group formControlName="Text" aria-label="Select an option">
-                                                    <label for="Payment Type">Payment Type :</label>
-                                                    <mat-radio-button value="Paid">Paid</mat-radio-button>
-                                                    <mat-radio-button value="ToPay">ToPay</mat-radio-button>
-                                                </mat-radio-group>
+                                        <mat-radio-group formControlName="Text" aria-label="Select an option">
+                                            <label for="Payment Type">Payment Type :</label>
+                                            <mat-radio-button value="Paid">Paid</mat-radio-button>
+                                            <mat-radio-button value="ToPay">ToPay</mat-radio-button>
+                                        </mat-radio-group>
 
-                                            </div>
-                                        </div>
-                                    </form>
-                                </article>
-                                <!-- card-body end .// -->
+                                    </div>
+                                </div>
+                            </form>
+                        </article>
+                        <!-- card-body end .// -->
 
-                            </div>
-                        </fieldset>
-                        <fieldset style="min-inline-size: auto" class="card-container" *ngIf="step===3">
-                            <!-- <legend class="scheduler-border">Moving From</legend> -->
-                            <div class="card">
-                                <header class="card-header">
-                                    <div class="card-title">Moving From</div>
-                                </header>
-                                <article class="card-body">
-                                    <form>
-                                        <!-- <div class="form-row">
+                    </div>
+                </fieldset>
+                <fieldset style="min-inline-size: auto" class="card-container" *ngIf="step===3">
+                    <!-- <legend class="scheduler-border">Moving From</legend> -->
+                    <div class="card">
+                        <header class="card-header">
+                            <div class="card-title">Moving From</div>
+                        </header>
+                        <article class="card-body">
+                            <form>
+                                <!-- <div class="form-row">
                                             <div class="col form-group">
                                                 <label
                                                     for="inputConsignor">Consignor<span class="text-danger">*</span></label>
@@ -251,38 +260,37 @@
                                             </div>
                                             
                                         </div> -->
-                                        <!-- form-row end.// -->
-                                        <div class="form-row">
-                                            <div class="col form-group">
-                                                <label for="inputCity">City/PIN<span class="text-danger">*</span></label>
-                                                <!-- <input type="text" formControlName="FromCity" class="form-control" TextMode="MultiLine" 
+                                <!-- form-row end.// -->
+                                <div class="form-row">
+                                    <div class="col form-group">
+                                        <label for="inputCity">City/PIN<span class="text-danger">*</span></label>
+                                        <!-- <input type="text" formControlName="FromCity" class="form-control" TextMode="MultiLine" 
                                       [ngClass]="{ 'is-invalid': f.FromCity.errors && (f.FromCity.dirty || f.FromCity.touched) }" />
                                            <div *ngIf="f.FromCity.invalid && (f.FromCity.dirty || f.FromCity.touched)"
                                                      class="invalid-feedback">
                                            <div *ngIf="f.FromCity.errors.required">City is required</div>
                                            </div> -->
-                                                <div class="ng-autocomplete">
-                                                    <ng-autocomplete [data]="CustomerArea" [searchKeyword]="keyword"
-                                                        (selected)='MovingfromselectEvent($event)'
-                                                        (inputChanged)='onChangeSearch($event)'
-                                                        (inputFocused)='onFocused($event)' [itemTemplate]="itemTemplate"
-                                                        [notFoundTemplate]="notFoundTemplate"
-                                                        formControlName="CollectionArea">
-                                                    </ng-autocomplete>
+                                        <div class="ng-autocomplete">
+                                            <ng-autocomplete [data]="CustomerArea" [searchKeyword]="keyword"
+                                                (selected)='MovingfromselectEvent($event)'
+                                                (inputChanged)='onChangeSearch($event)'
+                                                (inputFocused)='onFocused($event)' [itemTemplate]="itemTemplate"
+                                                [notFoundTemplate]="notFoundTemplate" formControlName="CollectionArea">
+                                            </ng-autocomplete>
 
-                                                    <ng-template #itemTemplate let-item>
-                                                        <a [innerHTML]="item.City"></a>
-                                                    </ng-template>
+                                            <ng-template #itemTemplate let-item>
+                                                <a [innerHTML]="item.City"></a>
+                                            </ng-template>
 
-                                                    <ng-template #notFoundTemplate let-notFound>
-                                                        <div [innerHTML]="notFound"></div>
-                                                    </ng-template>
+                                            <ng-template #notFoundTemplate let-notFound>
+                                                <div [innerHTML]="notFound"></div>
+                                            </ng-template>
 
-                                                </div>
-                                                <input type="text" formControlName="FromCustomerArea" class="form-control" readonly />
-                                                                                   
-                                            </div>
-                                            <!-- <div class="form-group col-md-4">
+                                        </div>
+                                        <input type="text" formControlName="FromCustomerArea" class="form-control" readonly />
+                                                                           
+                                    </div>
+                                    <!-- <div class="form-group col-md-4">
                                     <label for="inputState">State<span class="text-danger">*</span></label>
                                     <select id="State" class="form-control" formControlName="States">
                                         <option selected>Choose...</option>
@@ -291,7 +299,7 @@
                                            {{ d.Text}}
                                     </select>
                                 </div> -->
-                                            <!-- <div class="form-group col-md-2">
+                                    <!-- <div class="form-group col-md-2">
                                     <label for="inputZip">Zip<span class="text-danger">*</span></label>
                                     <input type="text" formControlName="FromZip" class="form-control" Numericonly
                                         numericType="alpha"
@@ -307,57 +315,57 @@
                                     </div>
 
                                 </div> -->
-                                        </div>
+                                </div>
 
-                                        <!-- form-group end.// -->
-                                        <div class="form-row">
-                                            <div class="col form-group">
-                                                <label>Address <span class="text-danger">*</span></label>
-                                                <input type="text" formControlName="fromAddr" class="form-control" TextMode="MultiLine" 
-                                                      [ngClass]="{ 'is-invalid': f.fromAddr.errors && (f.fromAddr.dirty || f.fromAddr.touched) }"
-                                                      placeholder="Address"/>
-                                                   
-                                                <div *ngIf="f.fromAddr.invalid && (f.fromAddr.dirty || f.fromAddr.touched)"
-                                                                 class="invalid-feedback">
-                                                       <div *ngIf="f.fromAddr.errors.required">Address is required</div>
-                                                       </div>
+                                <!-- form-group end.// -->
+                                <div class="form-row">
+                                    <div class="col form-group">
+                                        <label>Address <span class="text-danger">*</span></label>
+                                        <input type="text" formControlName="fromAddr" class="form-control" TextMode="MultiLine" 
+                                              [ngClass]="{ 'is-invalid': f.fromAddr.errors && (f.fromAddr.dirty || f.fromAddr.touched) }"
+                                              placeholder="Address" />
+                                           
+                                        <div *ngIf="f.fromAddr.invalid && (f.fromAddr.dirty || f.fromAddr.touched)"
+                                                         class="invalid-feedback">
+                                               <div *ngIf="f.fromAddr.errors.required">Address is required</div>
+                                               </div>
 
+                                    </div>
+
+                                </div>
+                                <div class="form-row">
+                                    <div class="col form-group">
+                                        <label>LandMark <span class="text-danger">*</span></label>
+                                          <input type="text" formControlName="fromlandmark" class="form-control" placeholder="LandMark"
+                                            [ngClass]="{ 'is-invalid': f.fromlandmark.errors && (f.fromlandmark.dirty || f.fromlandmark.touched) }"
+                                              />
+                                                                            
+                                        <div *ngIf="f.fromlandmark.invalid && (f.fromlandmark.dirty || f.fromlandmark.touched)"
+                                                                                    class="invalid-feedback">
+                                                                                    
+                                            <div *ngIf="f.fromlandmark.errors.required">LandMark is required
                                             </div>
-
+                                                                                
                                         </div>
-                                        <div class="form-row">
-                                            <div class="col form-group">
-                                                <label>LandMark <span class="text-danger">*</span></label>
-                                                  <input type="text" formControlName="fromlandmark" class="form-control" placeholder="LandMark"
-                                                    [ngClass]="{ 'is-invalid': f.fromlandmark.errors && (f.fromlandmark.dirty || f.fromlandmark.touched) }"
-                                                      />
-                                                                                    
-                                                <div *ngIf="f.fromlandmark.invalid && (f.fromlandmark.dirty || f.fromlandmark.touched)"
-                                                                                            class="invalid-feedback">
-                                                                                            
-                                                    <div *ngIf="f.fromlandmark.errors.required">LandMark is required
-                                                    </div>
-                                                                                        
-                                                </div>
-                                            </div>
-                                        </div>
+                                    </div>
+                                </div>
 
-                                    </form>
+                            </form>
 
-                                </article>
-                                <!-- card-body end .// -->
+                        </article>
+                        <!-- card-body end .// -->
 
-                            </div>
-                        </fieldset>
-                        <fieldset class="min-inline-size: auto" class="card-container" *ngIf="step===4">
-                            <!-- <legend class="scheduler-border">Moving To</legend> -->
-                            <div class="card">
-                                <header class="card-header">
-                                    <div class="card-title">Moving To</div>
-                                </header>
-                                <article class="card-body">
-                                    <form>
-                                        <!-- <div class="form-row">
+                    </div>
+                </fieldset>
+                <fieldset class="min-inline-size: auto" class="card-container" *ngIf="step===4">
+                    <!-- <legend class="scheduler-border">Moving To</legend> -->
+                    <div class="card">
+                        <header class="card-header">
+                            <div class="card-title">Moving To</div>
+                        </header>
+                        <article class="card-body">
+                            <form>
+                                <!-- <div class="form-row">
                                             <div class="col form-group">
                                                 <label
                                                     for="inputConsignee">Consignee<span class="text-danger">*</span></label>
@@ -384,39 +392,37 @@
                                             </div>
                                             
                                         </div> -->
-                                        <!-- form-row end.// -->
-                                        <div class="form-row">
-                                            <div class="form-group col">
-                                                <label
-                                                    for="inputCity">City/PIN<span class="text-danger">*</span></label>
-                                                <!-- <input type="text" formControlName="DelCity" class="form-control" TextMode="MultiLine" 
+                                <!-- form-row end.// -->
+                                <div class="form-row">
+                                    <div class="form-group col">
+                                        <label for="inputCity">City/PIN<span class="text-danger">*</span></label>
+                                        <!-- <input type="text" formControlName="DelCity" class="form-control" TextMode="MultiLine" 
                                       [ngClass]="{ 'is-invalid': f.DelCity.errors && (f.DelCity.dirty || f.DelCity.touched) }" />
                                            <div *ngIf="f.DelCity.invalid && (f.DelCity.dirty || f.DelCity.touched)"
                                                      class="invalid-feedback">
                                            <div *ngIf="f.DelCity.errors.required">City is required</div>
                                            </div> -->
-                                                <div class="ng-autocomplete ">
-                                                    <ng-autocomplete [data]="CustomerArea" [searchKeyword]="keyword"
-                                                        (selected)='MovingtoselectEvent($event)'
-                                                        (inputChanged)='onChangeSearch($event)'
-                                                        (inputFocused)='onFocused($event)' [itemTemplate]="itemTemplate"
-                                                        [notFoundTemplate]="notFoundTemplate"
-                                                        formControlName="DeliveryArea">
-                                                    </ng-autocomplete>
+                                        <div class="ng-autocomplete ">
+                                            <ng-autocomplete [data]="CustomerArea" [searchKeyword]="keyword"
+                                                (selected)='MovingtoselectEvent($event)'
+                                                (inputChanged)='onChangeSearch($event)'
+                                                (inputFocused)='onFocused($event)' [itemTemplate]="itemTemplate"
+                                                [notFoundTemplate]="notFoundTemplate" formControlName="DeliveryArea">
+                                            </ng-autocomplete>
 
-                                                    <ng-template #itemTemplate let-item>
-                                                        <a [innerHTML]="item.City"></a>
-                                                    </ng-template>
+                                            <ng-template #itemTemplate let-item>
+                                                <a [innerHTML]="item.City"></a>
+                                            </ng-template>
 
-                                                    <ng-template #notFoundTemplate let-notFound>
-                                                        <div [innerHTML]="notFound"></div>
-                                                    </ng-template>
+                                            <ng-template #notFoundTemplate let-notFound>
+                                                <div [innerHTML]="notFound"></div>
+                                            </ng-template>
 
-                                                </div>
-                                                <input type="text" formControlName="ToCustomerArea"
-                                                      class="form-control" readonly  />
-                                            </div>
-                                            <!-- <div class="form-group col-md-4">
+                                        </div>
+                                        <input type="text" formControlName="ToCustomerArea"   class="form-control"
+                                            readonly  />
+                                    </div>
+                                    <!-- <div class="form-group col-md-4">
                                     <label for="inputState">State<span class="text-danger">*</span></label>
                                     <select id="State" class="form-control" formControlName="States">
                                         <option selected>Choose...</option>
@@ -425,7 +431,7 @@
                                            {{ d.Text}}
                                     </select>
                                 </div> -->
-                                            <!-- <div class="form-group col-md-2">
+                                    <!-- <div class="form-group col-md-2">
                                     <label for="inputZip">Zip<span class="text-danger">*</span></label>
                                     <input type="text" formControlName="DelZip" class="form-control" Numericonly
                                         numericType="alpha"
@@ -441,47 +447,48 @@
                                     </div>
 
                                 </div> -->
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="col form-group">
+                                        <label>Address<span class="text-danger">*</span> </label>
+                                        <input type="text" formControlName="toAddr" class="form-control" TextMode="MultiLine"
+                                            [ngClass]="{ 'is-invalid': f.toAddr.errors && (f.toAddr.dirty || f.toAddr.touched) }"
+                                              placeholder="Address" />
+                                                                               
+                                        <div *ngIf="f.toAddr.invalid && (f.toAddr.dirty || f.toAddr.touched)"
+                                                                                    class="invalid-feedback">
+                                                                                    
+                                            <div *ngIf="f.toAddr.errors.required">Address is required</div>
+                                                                                    
                                         </div>
 
-                                        <div class="form-row">
-                                            <div class="col form-group">
-                                                <label>Address<span class="text-danger">*</span> </label>
-                                                <input type="text" formControlName="toAddr" class="form-control" TextMode="MultiLine"
-                                                [ngClass]="{ 'is-invalid': f.toAddr.errors && (f.toAddr.dirty || f.toAddr.touched) }"
-                                                      placeholder="Address" />
-                                                                                       
-                                                <div *ngIf="f.toAddr.invalid && (f.toAddr.dirty || f.toAddr.touched)"
-                                                                                            class="invalid-feedback">
-                                                                                            
-                                                    <div *ngIf="f.toAddr.errors.required">Address is required</div>
-                                                                                            
-                                                </div>
+                                    </div>
 
+                                </div>
+                                <!-- form-group end.// -->
+
+                                <div class="form-row">
+                                    <div class="col form-group">
+                                        <label>LandMark <span class="text-danger">*</span></label>
+                                          <input type="text" formControlName="tolandmark" class="form-control" placeholder="
+                                            To LandMark"
+                                            [ngClass]="{ 'is-invalid': f.tolandmark.errors && (f.tolandmark.dirty || f.tolandmark.touched) }"
+                                              />
+                                                                            
+                                        <div *ngIf="f.tolandmark.invalid && (f.tolandmark.dirty || f.tolandmark.touched)"
+                                                                                    class="invalid-feedback">
+                                                                                    
+                                            <div *ngIf="f.tolandmark.errors.required">LandMark is required
                                             </div>
-
+                                                                                
                                         </div>
-                                        <!-- form-group end.// -->
+                                    </div>
+                                </div>
 
-                                        <div class="form-row">
-                                            <div class="col form-group">
-                                                <label>LandMark <span class="text-danger">*</span></label>
-                                                  <input type="text" formControlName="tolandmark" class="form-control" placeholder=" To LandMark"
-                                                    [ngClass]="{ 'is-invalid': f.tolandmark.errors && (f.tolandmark.dirty || f.tolandmark.touched) }"
-                                                      />
-                                                                                    
-                                                <div *ngIf="f.tolandmark.invalid && (f.tolandmark.dirty || f.tolandmark.touched)"
-                                                                                            class="invalid-feedback">
-                                                                                            
-                                                    <div *ngIf="f.tolandmark.errors.required">LandMark is required
-                                                    </div>
-                                                                                        
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- form-group// -->
-                                        <div class="form-row">
-                                            <!-- <div class="col form-group">
+                                <!-- form-group// -->
+                                <div class="form-row">
+                                    <!-- <div class="col form-group">
                                                 <label>Receiver Mobile No<span class="text-danger">*</span> </label>
                                                 <input type="text" formControlName="tomobile_no" class="form-control" 
                                                      [ngClass]="{ 'is-invalid': f.tomobile_no.errors && (f.tomobile_no.dirty || f.tomobile_no.touched) }"
@@ -497,90 +504,90 @@
                                                     </div>
                                                 </div>
                                             </div> -->
-                                            <div class="col form-group">
-                                                <label>Receiver Mobile No<span class="text-danger">*</span> </label>
-                                                <input type="text"  formControlName="tomobile_no" pattern="^[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-                                                     [ngClass]="{'is-invalid': f.tomobile_no.errors && (f.tomobile_no.touched || f.tomobile_no.dirty)}"
-                                                     class="form-control" placeholder="Receiver Mobile No"  required>
-                                                                            
-                                                <div *ngIf="f.tomobile_no.errors && (f.tomobile_no.touched || f.tomobile_no.dirty)" class="invalid-feedback">
-                                                                                    
-                                                    <div *ngIf="f.tomobile_no.errors.required">Receiver mobile no is required.</div>
-                                                                                
-                                                </div>
-                                                                            
-                                                <div *ngIf="f.tomobile_no.errors && (f.tomobile_no.touched || f.tomobile_no.dirty)"
-                                                    class="invalid-feedback">
-                                                    <div *ngIf="f.tomobile_no.errors.maxlength">
-                                                        Please Enter Valid Mobile No.
-                                                    </div>
-                                                </div>
-
+                                    <div class="col form-group">
+                                        <label>Receiver Mobile No<span class="text-danger">*</span> </label>
+                                        <input type="text"  formControlName="tomobile_no" pattern="^[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                                             [ngClass]="{'is-invalid': f.tomobile_no.errors && (f.tomobile_no.touched || f.tomobile_no.dirty)}"
+                                             class="form-control" placeholder="Receiver Mobile No"  required>
+                                                                    
+                                        <div *ngIf="f.tomobile_no.errors && (f.tomobile_no.touched || f.tomobile_no.dirty)" class="invalid-feedback">
+                                                                            
+                                            <div *ngIf="f.tomobile_no.errors.required">Receiver mobile no is required.
+                                            </div>
+                                                                        
+                                        </div>
+                                                                    
+                                        <div *ngIf="f.tomobile_no.errors && (f.tomobile_no.touched || f.tomobile_no.dirty)"
+                                            class="invalid-feedback">
+                                            <div *ngIf="f.tomobile_no.errors.maxlength">
+                                                Please Enter Valid Mobile No.
                                             </div>
                                         </div>
-                                    </form>
 
-                                </article>
-                                <!-- card-body end .// -->
-
-                            </div>
-                        </fieldset>
-                        <fieldset class="min-inline-size: auto" class="card-container"  *ngIf="step===5">
-                            <!-- <legend class="scheduler-border">Goods Description</legend> -->
-                            <div class="card">
-                                <header class="card-header">
-                                    <div class="card-title">Goods Description
-                                        <!-- <div class="col-md-2 float-right"> -->
-                                        <!-- <button class="btn btn-primary float-right">Add</button> -->
-                                        <!-- <button class="btn btn-primary" style="margin-left: 1em" >Edit</button> -->
-                                        <!-- </div> -->
                                     </div>
-                                </header>
-                                <article class="card-body">
-                                    <form [formGroup]="addItems">
-                                        <div class="form-row">
-                                            <div class="form-group col">
-                                                <label
-                                                    for="inputPackageType">Packinging Type<span class="text-danger">*</span></label>
-                                                <select id="PackageType" class="form-control" 
-                                                    formControlName="PackingType" (change)='onOptionsSelected($event)'>
-                                                    <option selected>Choose...</option>
-                                                    <option *ngFor="let PackingType of PackingType[0];"
-                                                        [ngValue]="PackingType">
-                                                        {{PackingType.Text}}
-                                                </select>
-                                                <div *ngIf="I.PackingType.invalid && (I.PackingType.dirty || I.PackingType.touched)"
-                                                                                            class="invalid-feedback">
-                                                                                            
-                                                    <div *ngIf="I.PackingType.errors.required">Packing Type is required
-                                                    </div>
-                                                                                        
-                                                </div>
-                                            </div>
-                                            <div class="form-group col">
-                                                <label
-                                                    for="inputPackageDescription">Package Description<span class="text-danger">*</span></label>
-                                                <select class="form-control" formControlName="ItemType">
-                                                    <option selected>Choose...</option>
-                                                    <option *ngFor="let ItemType of ItemType[0]; index as i"
-                                                        [ngValue]="ItemType">
-                                                        {{ ItemType.Text}}
-                                                </select>
-                                                <!-- error block -->
-                                                <div *ngIf="I.ItemType.invalid && (I.ItemType.dirty || I.ItemType.touched)"
-                                                                                            class="invalid-feedback">
-                                                                                            
-                                                    <div *ngIf="I.ItemType.errors.required">Item Type is required
-                                                    </div>
-                                                                                        
-                                                </div>
+                                </div>
+                            </form>
 
-                                            </div>
+                        </article>
+                        <!-- card-body end .// -->
 
+                    </div>
+                </fieldset>
+                <fieldset class="min-inline-size: auto" class="card-container" *ngIf="step===5">
+                    <!-- <legend class="scheduler-border">Goods Description</legend> -->
+                    <div class="card">
+                        <header class="card-header">
+                            <div class="card-title">Goods Description
+                                <!-- <div class="col-md-2 float-right"> -->
+                                <!-- <button class="btn btn-primary float-right">Add</button> -->
+                                <!-- <button class="btn btn-primary" style="margin-left: 1em" >Edit</button> -->
+                                <!-- </div> -->
+                            </div>
+                        </header>
+                        <article class="card-body">
+                            <form [formGroup]="addItems">
+                                <div class="form-row">
+                                    <div class="form-group col">
+                                        <label
+                                            for="inputPackageType">Packinging Type<span class="text-danger">*</span></label>
+                                        <select id="PackageType" class="form-control" formControlName="PackingType"
+                                            (change)='onOptionsSelected($event)'>
+                                            <option selected>Choose...</option>
+                                            <option *ngFor="let PackingType of PackingType[0];" [ngValue]="PackingType">
+                                                {{PackingType.Text}}
+                                        </select>
+                                        <div *ngIf="I.PackingType.invalid && (I.PackingType.dirty || I.PackingType.touched)"
+                                                                                    class="invalid-feedback">
+                                                                                    
+                                            <div *ngIf="I.PackingType.errors.required">Packing Type is required
+                                            </div>
+                                                                                
                                         </div>
-                                        <!-- form-row end.// -->
-                                        <div class="form-row">
-                                            <!-- <div class="form-group col-md-4">
+                                    </div>
+                                    <div class="form-group col">
+                                        <label
+                                            for="inputPackageDescription">Package Description<span class="text-danger">*</span></label>
+                                        <select class="form-control" formControlName="ItemType">
+                                            <option selected>Choose...</option>
+                                            <option *ngFor="let ItemType of ItemType[0]; index as i"
+                                                [ngValue]="ItemType">
+                                                {{ ItemType.Text}}
+                                        </select>
+                                        <!-- error block -->
+                                        <div *ngIf="I.ItemType.invalid && (I.ItemType.dirty || I.ItemType.touched)"
+                                                                                    class="invalid-feedback">
+                                                                                    
+                                            <div *ngIf="I.ItemType.errors.required">Item Type is required
+                                            </div>
+                                                                                
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <!-- form-row end.// -->
+                                <div class="form-row">
+                                    <!-- <div class="form-group col-md-4">
                                     <label for="inputBags">No Of Bags<span class="text-danger">*</span></label>
                                     <input type="number" formControlName="NoOfBags" class="form-control" Numericonly
                                         numericType="alpha"
@@ -591,332 +598,347 @@
                                        </div>
 
                                 </div> -->
-                                            <div class="form-group col">
-                                                <label for="inputWeight">Weight<span class="text-danger">*</span></label>
-                                                <input type="number" formControlName="ItemActualWeight" class="form-control" Numericonly
-                                                    numericType="alpha" [ngClass]="{ 'is-invalid': I.ItemActualWeight.errors && (I.ItemActualWeight.dirty || I.ItemActualWeight.touched) }"
-                                                      placeholder="Weight" />
-                                                                                    
-                                                <div *ngIf="I.ItemActualWeight.invalid && (I.ItemActualWeight.dirty || I.ItemActualWeight.touched)"
-                                                                                            class="invalid-feedback">
-                                                                                            
-                                                    <div *ngIf="I.ItemActualWeight.errors.required">Weight is required
-                                                    </div>
-                                                                                        
-                                                </div>
+                                    <div class="form-group col">
+                                        <label for="inputWeight">Weight<span class="text-danger">*</span></label>
+                                        <input type="number" formControlName="ItemActualWeight" class="form-control" Numericonly
+                                            numericType="alpha"
+                                            [ngClass]="{ 'is-invalid': I.ItemActualWeight.errors && (I.ItemActualWeight.dirty || I.ItemActualWeight.touched) }"
+                                              placeholder="Weight" />
+                                                                            
+                                        <div *ngIf="I.ItemActualWeight.invalid && (I.ItemActualWeight.dirty || I.ItemActualWeight.touched)"
+                                                                                    class="invalid-feedback">
+                                                                                    
+                                            <div *ngIf="I.ItemActualWeight.errors.required">Weight is required
                                             </div>
-                                            <div class="form-group col">
-                                                <label for="inputChargeWeight">Charged  Weight<span class="text-danger">*</span></label>
-                                                <input type="number" formControlName="ItemChargedWeight" class="form-control" Numericonly
-                                                    numericType="alpha" [ngClass]="{ 'is-invalid': I.ItemChargedWeight.errors && (I.ItemChargedWeight.dirty || I.ItemChargedWeight.touched) }"
-                                                      placeholder="Charged Weight" />
-                                                                                       
-                                                <div *ngIf="I.ItemChargedWeight.invalid && (I.ItemChargedWeight.dirty || I.ItemChargedWeight.touched)"
-                                                                                            class="invalid-feedback">
-                                                                                            
-                                                    <div *ngIf="I.ItemChargedWeight.errors.required">
-                                                        Charged Weight is required</div>
-                                                                                        
-                                                </div>
-
-                                            </div>
+                                                                                
                                         </div>
-                                        <!-- form-group end.// -->
-                                        <!-- form-row end.// -->
-                                        <div class="form-row">
-                                            <div class="form-group col">
-                                                <label for="inputUnits">Unit<span class="text-danger">*</span></label>
-                                                <select id="Units" class="form-control" formControlName="GeneralUnits">
-                                                    <option selected>Choose...</option>
-                                                    <option *ngFor="let GeneralUnits of GeneralUnits[0]; index as i"
-                                                        [ngValue]="GeneralUnits">
-                                                        {{ GeneralUnits.Text}}
-                                                </select>
-                                                <div *ngIf="I.GeneralUnits.invalid && (I.GeneralUnits.dirty || I.GeneralUnits.touched)"
-                                                                                            class="invalid-feedback">
-                                                                                            
-                                                    <div *ngIf="I.GeneralUnits.errors.required">
-                                                        General Units is required</div>
-                                                                                        
-                                                </div>
-                                            </div>
-                                            <div class="form-group col">
-                                                <label for="inputRate">Rate<span class="text-danger">*</span></label>
-                                                <input type="number" formControlName="ItemRate" class="form-control" Numericonly
-                                                  numericType="alpha" [ngClass]="{ 'is-invalid': I.ItemRate.errors && (I.ItemRate.dirty || I.ItemRate.touched) }"
-                                                     placeholder="Rate" />
-                                                                                       
-                                                <div *ngIf="I.ItemRate.invalid && (I.ItemRate.dirty || I.ItemRate.touched)"
-                                                                                            class="invalid-feedback">
-                                                                                            
-                                                    <div *ngIf="I.ItemRate.errors.required">Rate is required</div>
-                                                                                           
-                                                </div>
-
-                                            </div>
+                                    </div>
+                                    <div class="form-group col">
+                                        <label for="inputChargeWeight">Charged
+                                            Weight<span class="text-danger">*</span></label>
+                                        <input type="number" formControlName="ItemChargedWeight" class="form-control" Numericonly
+                                            numericType="alpha"
+                                            [ngClass]="{ 'is-invalid': I.ItemChargedWeight.errors && (I.ItemChargedWeight.dirty || I.ItemChargedWeight.touched) }"
+                                              placeholder="Charged Weight" />
+                                                                               
+                                        <div *ngIf="I.ItemChargedWeight.invalid && (I.ItemChargedWeight.dirty || I.ItemChargedWeight.touched)"
+                                                                                    class="invalid-feedback">
+                                                                                    
+                                            <div *ngIf="I.ItemChargedWeight.errors.required">
+                                                Charged Weight is required</div>
+                                                                                
                                         </div>
-                                        <!-- form-group end.// -->
-                                        <!-- form-row end.// -->
-                                        <div class="form-row">
-                                            <div class="form-group col">
-                                                <label for="inputInvoiceNo">Invoice No<span class="text-danger">*</span></label>
-                                                <input type="number" formControlName="InvoiceNo" class="form-control" Numericonly
-                                                  numericType="alpha" [ngClass]="{ 'is-invalid': I.InvoiceNo.errors && (I.InvoiceNo.dirty || I.InvoiceNo.touched) }"
-                                                     placeholder="Invoice No" />
-                                                                                       
-                                                <div *ngIf="I.InvoiceNo.invalid && (I.InvoiceNo.dirty || I.InvoiceNo.touched)"
-                                                                                            class="invalid-feedback">
-                                                                                            
-                                                    <div *ngIf="I.InvoiceNo.errors.required">Invoice Value is required
-                                                    </div>
-                                                                                           
-                                                </div>
-                                            </div>
-                                            <div class="form-group col">
-                                                <label for="inputInvoiceValue">Invoice Value<span class="text-danger">*</span></label>
-                                                <input type="number" formControlName="InvoiceAmount" class="form-control" Numericonly
-                                                numericType="alpha" [ngClass]="{ 'is-invalid': I.InvoiceAmount.errors && (I.InvoiceAmount.dirty || I.InvoiceAmount.touched) }"
-                                                    placeholder="Invoice Value"  />
-                                                                                       
-                                                <div *ngIf="I.InvoiceAmount.invalid && (I.InvoiceAmount.dirty || I.InvoiceAmount.touched)"
-                                                                                            class="invalid-feedback">
-                                                                                            
-                                                    <div *ngIf="I.InvoiceAmount.errors.required">
-                                                        Invoice Value is required</div>
-                                                                                           
-                                                </div>
 
-                                            </div>
+                                    </div>
+                                </div>
+                                <!-- form-group end.// -->
+                                <!-- form-row end.// -->
+                                <div class="form-row">
+                                    <div class="form-group col">
+                                        <label for="inputUnits">Unit<span class="text-danger">*</span></label>
+                                        <select id="Units" class="form-control" formControlName="GeneralUnits">
+                                            <option selected>Choose...</option>
+                                            <option *ngFor="let GeneralUnits of GeneralUnits[0]; index as i"
+                                                [ngValue]="GeneralUnits">
+                                                {{ GeneralUnits.Text}}
+                                        </select>
+                                        <div *ngIf="I.GeneralUnits.invalid && (I.GeneralUnits.dirty || I.GeneralUnits.touched)"
+                                                                                    class="invalid-feedback">
+                                                                                    
+                                            <div *ngIf="I.GeneralUnits.errors.required">
+                                                General Units is required</div>
+                                                                                
                                         </div>
-                                        <!-- form-group end.// -->
-
-
-                                        <!-- form-group// -->
-                                        <div class="form-row">
-                                            <div class="col form-group">
-                                                <label>E-Way Bill No<span class="text-danger">*</span> </label>
-                                                <input type="number" formControlName="EwayBillNo" class="form-control" Numericonly
-                                                  numericType="alpha" [ngClass]="{ 'is-invalid': I.EwayBillNo.errors && (I.EwayBillNo.dirty || I.EwayBillNo.touched) }"
-                                                      placeholder="E-Way Bill No" />
-                                                 
-                                                <div *ngIf="I.EwayBillNo.invalid && (I.EwayBillNo.dirty || I.EwayBillNo.touched)"
-                                                    class="invalid-feedback">
-                                                      <div *ngIf="I.EwayBillNo.errors.required">E-Way Bill is required
-                                                    </div>
-                                                                                           </div>
-                                            </div>
+                                    </div>
+                                    <div class="form-group col">
+                                        <label for="inputRate">Rate<span class="text-danger">*</span></label>
+                                        <input type="number" formControlName="ItemRate" class="form-control" Numericonly
+                                            numericType="alpha"
+                                            [ngClass]="{ 'is-invalid': I.ItemRate.errors && (I.ItemRate.dirty || I.ItemRate.touched) }"
+                                             placeholder="Rate" />
+                                                                               
+                                        <div *ngIf="I.ItemRate.invalid && (I.ItemRate.dirty || I.ItemRate.touched)"
+                                                                                    class="invalid-feedback">
+                                                                                    
+                                            <div *ngIf="I.ItemRate.errors.required">Rate is required</div>
+                                                                                   
                                         </div>
-                                        <div class="form-row">
-                                            <div class="col form-group">
-                                                <label>Upload Image </label>
-                                                <input formControlName="photograph" type="file"
-                                                    (change)="onFileChanged($event)" #fileInput     />
-                                                <!-- <div *ngIf="I.photograph.touched && I.photograph.invalid"
+
+                                    </div>
+                                </div>
+                                <!-- form-group end.// -->
+                                <!-- form-row end.// -->
+                                <div class="form-row">
+                                    <div class="form-group col">
+                                        <label for="inputInvoiceNo">Invoice No<span class="text-danger">*</span></label>
+                                        <input type="number" formControlName="InvoiceNo" class="form-control" Numericonly
+                                            numericType="alpha"
+                                            [ngClass]="{ 'is-invalid': I.InvoiceNo.errors && (I.InvoiceNo.dirty || I.InvoiceNo.touched) }"
+                                             placeholder="Invoice No" />
+                                                                               
+                                        <div *ngIf="I.InvoiceNo.invalid && (I.InvoiceNo.dirty || I.InvoiceNo.touched)"
+                                                                                    class="invalid-feedback">
+                                                                                    
+                                            <div *ngIf="I.InvoiceNo.errors.required">Invoice Value is required
+                                            </div>
+                                                                                   
+                                        </div>
+                                    </div>
+                                    <div class="form-group col">
+                                        <label for="inputInvoiceValue">Invoice
+                                            Value<span class="text-danger">*</span></label>
+                                        <input type="number" formControlName="InvoiceAmount" class="form-control" Numericonly
+                                            numericType="alpha"
+                                            [ngClass]="{ 'is-invalid': I.InvoiceAmount.errors && (I.InvoiceAmount.dirty || I.InvoiceAmount.touched) }"
+                                            placeholder="Invoice Value"   />
+                                                                               
+                                        <div *ngIf="I.InvoiceAmount.invalid && (I.InvoiceAmount.dirty || I.InvoiceAmount.touched)"
+                                                                                    class="invalid-feedback">
+                                                                                    
+                                            <div *ngIf="I.InvoiceAmount.errors.required">
+                                                Invoice Value is required</div>
+                                                                                   
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!-- form-group end.// -->
+
+
+                                <!-- form-group// -->
+                                <div class="form-row">
+                                    <div class="col form-group">
+                                        <label>E-Way Bill No<span class="text-danger">*</span> </label>
+                                        <input type="number" formControlName="EwayBillNo" class="form-control" Numericonly
+                                            numericType="alpha"
+                                            [ngClass]="{ 'is-invalid': I.EwayBillNo.errors && (I.EwayBillNo.dirty || I.EwayBillNo.touched) }"
+                                              placeholder="E-Way Bill No" />
+                                         
+                                        <div *ngIf="I.EwayBillNo.invalid && (I.EwayBillNo.dirty || I.EwayBillNo.touched)"
+                                            class="invalid-feedback">
+                                              <div *ngIf="I.EwayBillNo.errors.required">E-Way Bill is required
+                                            </div>
+                                                                                   </div>
+                                    </div>
+                                </div>
+                                <div class="form-row">
+                                    <div class="col form-group">
+                                        <label>Upload Image </label>
+                                        <input formControlName="photograph" type="file" (change)="onFileChanged($event)"
+                                            #fileInput     />
+                                        <!-- <div *ngIf="I.photograph.touched && I.photograph.invalid"
                                                     class="invalid-feedback">
                                                     <div *ngIf="I.photograph.errors.required">File is required.</div>
                                                 </div> -->
-                                                <!-- <button class="btn-primary" (click)="fileInput.click()">Select File</button>
+                                        <!-- <button class="btn-primary" (click)="fileInput.click()">Select File</button>
                                      <button (click)="onUpload()">Upload!</button> -->
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <!-- <span ng-hide="IsEditMode">
+                                    </div>
+                                </div>
+                                <div>
+                                    <!-- <span ng-hide="IsEditMode">
                                                 {{url}} <a class="btn btn-danger btn-sm" *ngIf="url" ng-click="DeleteFile()">
                                                     <i class="glyphicon glyphicon-remove" style="font-size: 10px;"></i>
                                                 </a>
                                             </span> -->
-                                            <img [src]="url" alt="" *ngIf="url" style="height: 100px; width:100px"
-                                                class="card-img-top img-thumbnail">
+                                    <img [src]="url" alt="" *ngIf="url" style="height: 100px; width:100px"
+                                        class="card-img-top img-thumbnail">
 
-                                        </div>
+                                </div>
 
-                                        <div class="form-row form-button">
-                                            <!-- <div class="col-md-6 float-center">  -->
-                                            <button class="btn btn-primary col-md-2 float-center" id="btn-gd"
-                                                [disabled]="addItems.invalid ||!Editenable" (click)="AddItems()">{{title}}</button>
-                                            <button class="btn btn-primary col-md-2 float-center" id="btn-gd"
-                                                (click)="Cancel()">Cancel</button>
-                                            <!-- </div> -->
-                                            <div class="container float-center">
-                                                <!-- <ag-grid-angular
+                                <div class="form-row form-button">
+                                    <!-- <div class="col-md-6 float-center">  -->
+                                    <button class="btn btn-primary col-md-2 float-center" id="btn-gd"
+                                        [disabled]="addItems.invalid ||!Editenable"
+                                        (click)="AddItems()">{{title}}</button>
+                                    <button class="btn btn-primary col-md-2 float-center" id="btn-gd"
+                                        (click)="Cancel()">Cancel</button>
+                                    <!-- </div> -->
+                                    <div class="container float-center">
+                                        <!-- <ag-grid-angular
                                 style="width: 700px; height:150px;"
                            class="ag-theme-alpine"
                            [rowData]="rowData"
                           [columnDefs]="columnDefs">
                       </ag-grid-angular> -->
 
-                                                <table class="table table-bordered">
-                                                    <tr>
-                                                        <th>Package Description</th>
-                                                        <!-- <th>No of Bags</th> -->
-                                                        <th>Weight</th>
-                                                        <th>Charged Weight</th>
-                                                        <th>Unit</th>
-                                                        <th>Rate</th>
-                                                        <th width="150px">Image</th>
-                                                        <th width="130px">Action</th>
-                                                    </tr>
-                                                    <tr *ngFor="let i of Itemlist">
+                                        <table class="table table-bordered">
+                                            <tr>
+                                                <th>Package Description</th>
+                                                <!-- <th>No of Bags</th> -->
+                                                <th>Weight</th>
+                                                <th>Charged Weight</th>
+                                                <th>Unit</th>
+                                                <th>Rate</th>
+                                                <th width="150px">Image</th>
+                                                <th width="130px">Action</th>
+                                            </tr>
+                                            <tr *ngFor="let i of Itemlist">
 
-                                                        <td>{{ i.ItemType.Text}}</td>
-                                                        <!-- <td>{{ i.NoOfBags }}</td> -->
-                                                        <td>{{ i.ItemActualWeight }}</td>
-                                                        <td>{{ i.ItemChargedWeight }}</td>
-                                                        <td>{{ i.GeneralUnits.Text}}</td>
-                                                        <td>{{ i.ItemRate}}</td>
-                                                        <td><img [src]="photograph" alt="" *ngIf="photograph"
-                                                                style="height: 50px; width:100px"
-                                                                class="card-img-top img-thumbnail"></td>
-                                                        <td class="text-right">
-                                                            <!-- <a href="#" [routerLink]=""
+                                                <td>{{ i.ItemType.Text}}</td>
+                                                <!-- <td>{{ i.NoOfBags }}</td> -->
+                                                <td>{{ i.ItemActualWeight }}</td>
+                                                <td>{{ i.ItemChargedWeight }}</td>
+                                                <td>{{ i.GeneralUnits.Text}}</td>
+                                                <td>{{ i.ItemRate}}</td>
+                                                <td><img [src]="photograph" alt="" *ngIf="photograph"
+                                                        style="height: 50px; width:100px"
+                                                        class="card-img-top img-thumbnail"></td>
+                                                <td class="text-right">
+                                                    <!-- <a href="#" [routerLink]=""
                                                                 class="btn btn-info btn-sm">View</a> -->
-                                                            <a (click)="Edititem(i)" id="btnEdit" [disabled]="!Editenable"
-                                                                class="btn btn-primary btn-sm">Edit</a>
-                                                            <button type="button" id="btnDelete" (click)="Deleteitem(i)" [disabled]="!Editenable"
-                                                                class="btn btn-danger btn-sm">Delete</button>
-                                                        </td>
+                                                    <a (click)="Edititem(i)" id="btnEdit" [disabled]="!Editenable"
+                                                        class="btn btn-primary btn-sm">Edit</a>
+                                                    <button type="button" id="btnDelete" (click)="Deleteitem(i)"
+                                                        [disabled]="!Editenable"
+                                                        class="btn btn-danger btn-sm">Delete</button>
+                                                </td>
 
-                                                    </tr>
-                                                    <!-- <tr *ngIf="!Itemlist">
+                                            </tr>
+                                            <!-- <tr *ngIf="!Itemlist">
                                                         <td colspan="4" class="text-center">
                                                             <span
                                                                 class="spinner-border spinner-border-lg align-center"></span>
                                                         </td>
                                                     </tr> -->
-                                                </table>
-                                            </div>
-                                        </div>
-                                        <!-- <ag-grid-angular
+                                        </table>
+                                    </div>
+                                </div>
+                                <!-- <ag-grid-angular
                                       style="width: 500px; height: 150px;"
                                  class="ag-theme-alpine"
                                  [rowData]="rowData"
                                 [columnDefs]="columnDefs">
                             </ag-grid-angular> -->
 
-                                        
-                                        <!-- <button class="btn btn-primary" style="margin-left: 1em" >Edit</button> -->
 
-                                    </form>
+                                <!-- <button class="btn btn-primary" style="margin-left: 1em" >Edit</button> -->
 
-                                </article>
-                                <!-- card-body end .// -->
+                            </form>
 
-                            </div>
-                        </fieldset>
-                        <fieldset class="min-inline-size: auto" class="card-container" *ngIf="step===6">
-                            <!-- <legend class="scheduler-border">Review and Confirm</legend> -->
-                            <div class="card">
-                                <form [formGroup]="ReviewForm">
-                                    <div class="control-group">
-                                        <div class="controls">
-                                            <table class="table table-bordered">
-                                                <thead style="display: none;">
-                                                    <tr>
-                                                        <th scope="col">Fields</th>
-                                                        <th scope="col">Values</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr id="lr_id_edit" name="Lrid">
-                                                        <th scope="row">LR ID</th>
-                                                        <td>
-                                                            <input formControlName="LrId"
-                                                                style="width: 100%; padding: 5px; margin: 0px;" [value]="Lrid" readonly />
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">Booking Category</th>
-                                                        <td>
-                                                            <input id="lbl_view_bookingCategory" formControlName="Booking_Category"
-                                                                style="width: 100%; padding: 5px; margin: 0px;" readonly />
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">Gender</th>
-                                                        <td>
-                                                            <input id="lbl_view_gender" formControlName="Gender"
-                                                                style="width: 100%; padding: 5px; margin: 0px;" readonly />
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">Name</th>
-                                                        <td>
-                                                            <input id="lbl_view_Name" formControlName="Name"
-                                                                style="width: 100%; padding: 5px; margin: 0px;" readonly />
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">Sender Mob. No.</th>
-                                                        <td>
-                                                            <input id="lbl_view_SenderMobNo" formControlName="SenderMobNo"
-                                                                style="width: 100%; padding: 5px; margin: 0px;" readonly />
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">Email Address</th>
-                                                        <td>
-                                                            <input id="lbl_view_EmailAddr" formControlName="EmailAddr"
-                                                                style="width: 100%; padding: 5px; margin: 0px;" readonly />
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">Payment Type</th>
-                                                        <td>
-                                                            <input id="lbl_view_PaymentType" formControlName="PaymentType"
-                                                                style="width: 100%; padding: 5px; margin: 0px;" readonly />
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">Pick Up Point Details</th>
-                                                        <td>
-                                                            <input id="lbl_view_PickUpDetails" formControlName="FromPickUpDetails"
-                                                                style="width: 100%; padding: 5px; margin: 0px;" readonly />
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">Delivery Point Details</th>
-                                                        <td>
-                                                            <input id="lbl_view_DeliveryDetails" formControlName="ToDeliveryDetails"
-                                                                style="width: 100%; padding: 5px; margin: 0px;" readonly />
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td colspan="2"><b>Description of Goods</b>
-                                                            <table class="participants-table">
-                                                                <thead>
-                                                                    <tr>
-                                                                        <th>Package Description</th>
-                                                                        <!-- <th>No of Bags</th> -->
-                                                                        <th>Weight</th>
-                                                                        <th>Charged Weight</th>
-                                                                        <th>Unit</th>
-                                                                        <th>Rate</th>
-                                                                        <th width="150px">Image</th>
-                            
-                                                                    </tr>
-                                                                </thead>
-                                                                
-                                                                <tbody>
-                                                                    <tr *ngFor="let i of Itemlist">
-                                                                        <td>{{ i.ItemType.Text }}</td>
-                                                                        <!-- <td>{{ i.NoOfBags }}</td> -->
-                                                                        <td>{{ i.ItemActualWeight }}</td>
-                                                                        <td>{{ i.ItemChargedWeight }}</td>
-                                                                        <td>{{ i.GeneralUnits.Text }}</td>
-                                                                        <td>{{ i.ItemRate}}</td>
-                                                                        <td><img [src]="url" alt="" *ngIf="url" style="height: 50px; width:100px"
-                                                                                class="card-img-top img-thumbnail"></td>
-                            
-                                                                    </tr>
-                                                                </tbody>
-                                                                
-                                                            </table>
-                                                    
-            
-                                                    </td>
-            
-                                                    </tr>
-                                                    <!-- <tr>
+                        </article>
+                        <!-- card-body end .// -->
+
+                    </div>
+                </fieldset>
+                <fieldset class="min-inline-size: auto" class="card-container" *ngIf="step===6">
+                    <!-- <legend class="scheduler-border">Review and Confirm</legend> -->
+                    <div class="card">
+                        <form [formGroup]="ReviewForm">
+                            <div class="control-group">
+                                <div class="controls">
+                                    <table class="table table-bordered">
+                                        <thead style="display: none;">
+                                            <tr>
+                                                <th scope="col">Fields</th>
+                                                <th scope="col">Values</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr id="lr_id_edit" name="Lrid">
+                                                <th scope="row">LR ID</th>
+                                                <td>
+                                                    <input formControlName="LrId"
+                                                        style="width: 100%; padding: 5px; margin: 0px;" [value]="Lrid"
+                                                        readonly />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Booking Category</th>
+                                                <td>
+                                                    <input id="lbl_view_bookingCategory"
+                                                        formControlName="Booking_Category"
+                                                        style="width: 100%; padding: 5px; margin: 0px;" readonly />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Gender</th>
+                                                <td>
+                                                    <input id="lbl_view_gender" formControlName="Gender"
+                                                        style="width: 100%; padding: 5px; margin: 0px;" readonly />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Name</th>
+                                                <td>
+                                                    <input id="lbl_view_Name" formControlName="Name"
+                                                        style="width: 100%; padding: 5px; margin: 0px;" readonly />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Sender Mob. No.</th>
+                                                <td>
+                                                    <input id="lbl_view_SenderMobNo" formControlName="SenderMobNo"
+                                                        style="width: 100%; padding: 5px; margin: 0px;" readonly />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Email Address</th>
+                                                <td>
+                                                    <input id="lbl_view_EmailAddr" formControlName="EmailAddr"
+                                                        style="width: 100%; padding: 5px; margin: 0px;" readonly />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Payment Type</th>
+                                                <td>
+                                                    <input id="lbl_view_PaymentType" formControlName="PaymentType"
+                                                        style="width: 100%; padding: 5px; margin: 0px;" readonly />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Pick Up Point Details</th>
+                                                <td>
+                                                    <input id="lbl_view_PickUpDetails"
+                                                        formControlName="FromPickUpDetails"
+                                                        style="width: 100%; padding: 5px; margin: 0px;" readonly />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Delivery Point Details</th>
+                                                <td>
+                                                    <input id="lbl_view_DeliveryDetails"
+                                                        formControlName="ToDeliveryDetails"
+                                                        style="width: 100%; padding: 5px; margin: 0px;" readonly />
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2"><b>Description of Goods</b>
+                                                    <table class="participants-table">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Package Description</th>
+                                                                <!-- <th>No of Bags</th> -->
+                                                                <th>Weight</th>
+                                                                <th>Charged Weight</th>
+                                                                <th>Unit</th>
+                                                                <th>Rate</th>
+                                                                <th width="150px">Image</th>
+
+                                                            </tr>
+                                                        </thead>
+
+                                                        <tbody>
+                                                            <tr *ngFor="let i of Itemlist">
+                                                                <td>{{ i.ItemType.Text }}</td>
+                                                                <!-- <td>{{ i.NoOfBags }}</td> -->
+                                                                <td>{{ i.ItemActualWeight }}</td>
+                                                                <td>{{ i.ItemChargedWeight }}</td>
+                                                                <td>{{ i.GeneralUnits.Text }}</td>
+                                                                <td>{{ i.ItemRate}}</td>
+                                                                <td><img [src]="url" alt="" *ngIf="url"
+                                                                        style="height: 50px; width:100px"
+                                                                        class="card-img-top img-thumbnail"></td>
+
+                                                            </tr>
+                                                        </tbody>
+
+                                                    </table>
+
+
+                                                </td>
+
+                                            </tr>
+                                            <!-- <tr>
                                                         <th scope="row">Declarations</th>
                                                         <td>
                                                             <Label id="lbl_view_Declarations" Text=""></Label>
@@ -928,68 +950,72 @@
                                                             <Label id="lbl_view_totalWeight" Text=""></Label>
                                                         </td>
                                                     </tr> -->
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-            
-                                    <div class="form-row">
-                                        <div class="col form-group">
-                                            <label>Freight Amount<span class="text-danger">*</span> </label>
-                                            <input type="number" formControlName="FREIGHT" class="form-control" Numericonly
-                                                    numericType="alpha" />
-            
-            
-                                        </div>
-                                        <div class="col form-group">
-                                            <label>Received Amount<span class="text-danger">*</span> </label>
-                                            <input type="number" formControlName="received_amount" class="form-control" Numericonly
-                                                    numericType="alpha" />
-                                        </div>
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="col form-group">
-                                            <label for="txtGST">GST Amount<span class="text-danger">*</span></label>
-                                            <input type="number" formControlName="gst_amt" class="form-control" Numericonly
-                                                    numericType="alpha" />
-            
-                                        </div>
-                                        <div class="col form-group">
-                                            <label>Balance Amount<span class="text-danger">*</span> </label>
-                                            <input type="number" formControlName="Balance_Amount" on-focus="balancefocusFunction()" class="form-control" Numericonly
-                                                    numericType="alpha" />
-                                        </div>
-                                    </div>
-            
-                                    <div class="form-row">
-                                        <div class="col form-group">
-                                            <label for="txtgrandTotal">Total Amount<span class="text-danger">*</span></label>
-                                            <input type="number" formControlName="GrandTotal" on-focus="focusFunction()"
-                                                 class="form-control"  Numericonly     numericType="alpha" />
-                                        </div>
-                                    </div>
-                                    <!-- <button class="btn btn-primary col-md-4 float-center" style="margin-bottom: 2em"
-                                        (click)="Save()">{{Savetitle}}</button> -->
-                                    <button class="btn btn-primary col-md-4 float-center" *ngIf="employeelogin"
-                                     style="margin:0px 5px 22px 20px" (click)="PickupComplete()">Pick-up Complete</button>
-            
-                                </form>
-            
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
-                        </fieldset>
-                        <div class="text-center multiStepForm-buttons">
-                            
-                            <button *ngIf="step !== 1" class="btn mr-2" (click)="formPrev()">Previous</button>
-                            <button *ngIf="step !== 6" class="btn" (click)="formNext()">Next</button>
-                            <button *ngIf="step === 6" class="btn" type="submit"
-                                              (click)="Save()">Proceed to Pay</button>
-                        </div>
-                    </form>
+
+                            <div class="form-row">
+                                <div class="col form-group">
+                                    <label>Freight Amount<span class="text-danger">*</span> </label>
+                                    <input type="number" formControlName="FREIGHT" class="form-control" Numericonly
+                                            numericType="alpha" />
+
+
+                                </div>
+                                <div class="col form-group">
+                                    <label>Received Amount<span class="text-danger">*</span> </label>
+                                    <input type="number" formControlName="received_amount" class="form-control" Numericonly
+                                            numericType="alpha" />
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col form-group">
+                                    <label for="txtGST">GST Amount<span class="text-danger">*</span></label>
+                                    <input type="number" formControlName="gst_amt" class="form-control" Numericonly
+                                            numericType="alpha" />
+
+                                </div>
+                                <div class="col form-group">
+                                    <label>Balance Amount<span class="text-danger">*</span> </label>
+                                    <input type="number" formControlName="Balance_Amount"
+                                        on-focus="balancefocusFunction()"  class="form-control"  Numericonly
+                                            numericType="alpha" />
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="col form-group">
+                                    <label for="txtgrandTotal">Total Amount<span class="text-danger">*</span></label>
+                                    <input type="number" formControlName="GrandTotal" on-focus="focusFunction()"
+                                         class="form-control"  Numericonly     numericType="alpha" />
+                                </div>
+                            </div>
+                            <!-- <button class="btn btn-primary col-md-4 float-center" style="margin-bottom: 2em"
+                                        (click)="Save()">{{Savetitle}}</button> -->
+                            <!-- <button class="btn btn-primary col-md-4 float-center" *ngIf="employeelogin"
+                                     style="margin:0px 5px 22px 20px" (click)="PickupComplete()">Pick-up Complete</button> -->
+
+                        </form>
+
+                    </div>
+                </fieldset>
+                <div class="text-center multiStepForm-buttons">
+
+                    <button *ngIf="step !== 1" class="btn mr-2" (click)="formPrev()">Previous</button>
+                    <button *ngIf="step === 5" class="btn" type="submit"   (click)="formNext();onTabActivated(BookingForm.value)">Review and Confirm</button>
+                    <button *ngIf="step !== 6 && step !== 5" class="btn" (click)="formNext()">Next</button>                                        
+                    <button *ngIf="step === 6  && !employeelogin" class="btn" type="submit"   (click)="Save()">Proceed
+                        to Pay</button>                        
+                    <button class="btn btn-primary col-md-4 float-center" *ngIf="step === 6 && employeelogin"
+                        (click)="PickupComplete()">Pick-up Complete</button>
                 </div>
-            <!-- </tab> -->
-            <!-- <tab heading='Review & Confirmation' (selectTab)="onTabActivated($event)"> -->
-                
-            <!-- </tab>
+            </form>
+        </div>
+        <!-- </tab> -->
+        <!-- <tab heading='Review & Confirmation' (selectTab)="onTabActivated($event)"> -->
+
+        <!-- </tab>
         </tabset> -->
     </div>
 </div>

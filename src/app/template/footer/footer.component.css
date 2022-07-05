@@ -1,8 +1,10 @@
-.footer {    
-    background-color: transparent;
-}
 
-.footer p{
+footer {
+    background-color: transparent;
+  }
+  
+  
+footer p{
     color: #e0aa81;
     font-size: 18px;
-}
+  }

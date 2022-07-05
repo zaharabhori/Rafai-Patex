@@ -23,13 +23,15 @@
     <button class="btn btn-primary" (click)="UnloadSelected()" >Unload</button> 
 
     <ag-grid-angular #agGrid
-    style="width: 100%; height: 650px; margin-top: 20px;"
+    style="width: 100%;height: auto; margin-top: 20px;"
     class="ag-theme-alpine"
+    [domLayout]="domLayout"
     [rowData]="rowData"
     [columnDefs]="columnDefs"
     [pagination]="true"
-    [paginationAutoPageSize]="true"
+    [paginationPageSize]="11"
     (rowClicked)='onRowClicked($event)'
+    (gridReady)="onGridReady($event)"
     >
     </ag-grid-angular>
     

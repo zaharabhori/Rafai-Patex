@@ -359,9 +359,6 @@ input::placeholder{
   margin-left: -13px;
 }
 
-.footer1 {    
-  background-color: transparent;
-}
 
 @media (max-width: 576px){
   .form-row>.col, .form-row>[class*=col-] {
@@ -407,7 +404,7 @@ input::placeholder{
   .progress-step-active {
     background-color: #00315d;
     color: white;
-    z-index: 3;
+    z-index: 1;
   }
 
   .progressbar{

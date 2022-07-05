@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, Inject, LOCALE_ID, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { AgGridAngular } from 'ag-grid-angular';
-import { GridReadyEvent, GridSizeChangedEvent } from 'ag-grid-community';
+import { ColumnApi, GridApi, GridReadyEvent, GridSizeChangedEvent } from 'ag-grid-community';
 import { ShipmentQue } from 'src/app/Models/ShipmentQue';
 import { ApiService } from 'src/app/services/api.service';
 import { ShipmentQueComponent } from '../shipment-que/shipment-que.component';
@@ -27,9 +27,12 @@ export class UnloadComponent {
   @ViewChild('agGrid') agGrid: AgGridAngular;
   shipmentunload: ShipmentQue;
   shipmentdata = new ShipmentQue();
+  domLayout = 'autoHeight';
   //keyword = 'Branch';
   keyword = 'Branch';
   data = [];
+  gridApi!: GridApi;
+  gridColumnApi!: ColumnApi;
   // data = [
   //    {
   //      id: 1,
@@ -79,6 +82,13 @@ export class UnloadComponent {
     this.GetBranchList();
     this.GetShipmentQue()
   }
+
+  onGridReady(params: GridReadyEvent) {
+    this.gridApi = params.api;
+    this.gridColumnApi = params.columnApi;
+    params.api.sizeColumnsToFit();
+  }
+
   GetShipmentQue() {
     this.shipmentunload = new ShipmentQue();
 
@@ -110,14 +120,14 @@ export class UnloadComponent {
   rowData: any;
   UnloadSelected() {
     // do something with selected item
-     this.rowData = [
-        { make: 'Toyota', model: 'Celica', price: 35000 ,mobile:9089786745,status:'PickUp-Planned'},
-        { make: 'Ford', model: 'Mondeo', price: 32000,mobile:9089786740 ,status:'PickUp-Planned'},
-        { make: 'Porsche', model: 'Boxter', price: 72000,mobile:9089789745,status:'PickUp-Planned' },
-        { make: 'Toyota', model: 'Celica', price: 35000,mobile:9089788745,status:'PickUp-Done' },
-        { make: 'Ford', model: 'Mondeo', price: 32000,mobile:9089786545 ,status:'PickUp-Planned'},
-        { make: 'Porsche', model: 'Boxter', price: 72000,mobile:9089548674,status:'PickUp-Done' }
-    ];
+    //  this.rowData = [
+    //     { make: 'Toyota', model: 'Celica', price: 35000 ,mobile:9089786745,status:'PickUp-Planned'},
+    //     { make: 'Ford', model: 'Mondeo', price: 32000,mobile:9089786740 ,status:'PickUp-Planned'},
+    //     { make: 'Porsche', model: 'Boxter', price: 72000,mobile:9089789745,status:'PickUp-Planned' },
+    //     { make: 'Toyota', model: 'Celica', price: 35000,mobile:9089788745,status:'PickUp-Done' },
+    //     { make: 'Ford', model: 'Mondeo', price: 32000,mobile:9089786545 ,status:'PickUp-Planned'},
+    //     { make: 'Porsche', model: 'Boxter', price: 72000,mobile:9089548674,status:'PickUp-Done' }
+    // ];
   }
 
   selectEvent(item) {
@@ -156,9 +166,6 @@ export class UnloadComponent {
     //console.log("selection", event);
     const selectedrows = this.agGrid.api.getSelectedRows();
     console.log('selectedrow', selectedrows);
-  }
-  onGridReady(params: GridReadyEvent) {
-    params.api.sizeColumnsToFit();
   }
 
   onGridSizeChanged(params: GridSizeChangedEvent) {
