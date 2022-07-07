@@ -100,8 +100,7 @@ export class BookShipmentComponent implements OnInit {
       ToCustomerArea: ['', Validators.required],
       toAddr: ['', Validators.required],
       tolandmark: ['', Validators.required],
-      tomobile_no: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$'),
-      Validators.minLength(10), Validators.maxLength(10)]],
+      tomobile_no: ['', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
       // Consignor: ['', Validators.required],
       // Consignee: ['', Validators.required],
       PaymentType: this.fb.group({

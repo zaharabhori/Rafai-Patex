@@ -488,23 +488,7 @@
 
                                 <!-- form-group// -->
                                 <div class="form-row">
-                                    <!-- <div class="col form-group">
-                                                <label>Receiver Mobile No<span class="text-danger">*</span> </label>
-                                                <input type="text" formControlName="tomobile_no" class="form-control" 
-                                                     [ngClass]="{ 'is-invalid': f.tomobile_no.errors && (f.tomobile_no.dirty || f.tomobile_no.touched) }"
-                                                      />
-                                                <div *ngIf="f.tomobile_no.invalid && (f.tomobile_no.dirty || f.tomobile_no.touched)"
-                                                     class="invalid-feedback">
-                                                     <div *ngIf="f.tomobile_no.errors.required">Receiver mobile no is required</div>
-                                                </div>
-                                                <div *ngIf="f.tomobile_no.errors && (f.tomobile_no.touched || f.tomobile_no.dirty)"
-                                                    class="invalid-feedback">
-                                                    <div *ngIf="f.tomobile_no.errors.maxlength||f.tomobile_no.errors.minlength">
-                                                        Please Enter Valid Mobile No.
-                                                    </div>
-                                                </div>
-                                            </div> -->
-                                    <div class="col form-group">
+                                     <!-- <div class="col form-group">
                                         <label>Receiver Mobile No<span class="text-danger">*</span> </label>
                                         <input type="text"  formControlName="tomobile_no" pattern="^[A-Za-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                                              [ngClass]="{'is-invalid': f.tomobile_no.errors && (f.tomobile_no.touched || f.tomobile_no.dirty)}"
@@ -524,7 +508,22 @@
                                             </div>
                                         </div>
 
+                                    </div> -->
+                                    <div class="col form-group">
+                                        <label>Receiver Mobile No<span class="text-danger">*</span> </label>
+                                        <input type="text"  formControlName="tomobile_no"
+                                             [ngClass]="{'is-invalid': f.tomobile_no.errors && (f.tomobile_no.touched || f.tomobile_no.dirty)}"
+                                             class="form-control" placeholder="Mobile No"  required>
+                                                                    
+                                        <div *ngIf="f.tomobile_no.invalid && (f.tomobile_no.touched || f.tomobile_no.dirty)" class="invalid-feedback">
+                                                                            
+                                            <div *ngIf="f.tomobile_no.errors.required">Invalid Mobile No.</div>
+                                            <div *ngIf="f.tomobile_no.errors.pattern">Please, Enter 10 digit Mobile Number.
+                                            </div>
+                                                                        
+                                        </div>
                                     </div>
+
                                 </div>
                             </form>
 

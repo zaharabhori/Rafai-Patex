@@ -369,7 +369,7 @@ input::placeholder{
     padding-right: 5px;
     padding-left: 5px;
     margin-left: 5px;
-    height: 85px;
+    /* height: 85px; */
 } 
 
   .form-group{
