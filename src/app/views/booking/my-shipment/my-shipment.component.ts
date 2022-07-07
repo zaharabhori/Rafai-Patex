@@ -17,7 +17,7 @@ export class MyShipmentComponent implements OnInit {
   selectedEntity: any;
   shipmentque:ShipmentQue;
   columnDefs = [
-    { headerName:'Lr Id', field: 'LrId', sortable: true, filter: true, checkboxSelection: true 
+    { headerName:'Lr Id', field: 'LrId', pinned : 'left',  lockPinned: true, cellClass: 'lock-pinned', sortable: true, filter: true, checkboxSelection: true 
     ,resizable: true ,
     cellRenderer: params => {
       return `<a (click)="onCellClicked("${params.data}")">${ params.value }</a>`;

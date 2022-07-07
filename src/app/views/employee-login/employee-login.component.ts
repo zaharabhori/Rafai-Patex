@@ -36,7 +36,7 @@ export class EmployeeLoginComponent implements OnInit {
     return this.EmpLoginForm.controls;
   }
 
-  toggleDown(): void {
+  toggleCollapsed(): void {
     this.collapsed = !this.collapsed;
   }
 

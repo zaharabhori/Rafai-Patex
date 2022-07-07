@@ -18,10 +18,12 @@ export class ShipmentQueComponent implements OnInit {
   selectedEntity: any;
   shipmentque:ShipmentQue;
   gridApi!: GridApi;
+  pageNumber = 10;
+  noOfRows = 0;
   gridColumnApi!: ColumnApi;
   domLayout = 'autoHeight'
   columnDefs = [
-    { headerName:'Lr Id', field: 'LrId', sortable: true, filter: true, checkboxSelection: true ,resizable: true},
+    { headerName:'Lr Id', field: 'LrId', pinned : 'left',  lockPinned: true, cellClass: 'lock-pinned',sortable: true, filter: true, checkboxSelection: true ,resizable: true},
     { headerName:'Date', field: 'Date', sortable: true, filter: true ,resizable: true,
     cellRenderer: (data) => {
       return  formatDate(data.value, 'dd/MM/yyyy', this.locale);
@@ -43,13 +45,16 @@ export class ShipmentQueComponent implements OnInit {
 
   ngOnInit(): void {
   this.GetShipmentQue()
+  this.noOfRows = Math.round((document.body.clientHeight - 150)/50) -1 ;
   }
 
   onGridReady(params: GridReadyEvent) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
-    params.api.sizeColumnsToFit();
+    if(window.innerWidth > 820){
+      params.api.sizeColumnsToFit();
   }
+}
 
   GetShipmentQue() {
     this.api.GetShipmentdata(this.shipmentque).subscribe(

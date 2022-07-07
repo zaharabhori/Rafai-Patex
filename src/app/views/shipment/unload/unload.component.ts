@@ -31,6 +31,8 @@ export class UnloadComponent {
   //keyword = 'Branch';
   keyword = 'Branch';
   data = [];
+  pageNumber = 10;
+  noOfRows = 0;
   gridApi!: GridApi;
   gridColumnApi!: ColumnApi;
   // data = [
@@ -63,7 +65,7 @@ export class UnloadComponent {
 
 
   columnDefs = [
-    { headerName: 'Lr Id', field: 'LrId', sortable: true, filter: true, checkboxSelection: true, resizable: true },
+    { headerName: 'Lr Id', field: 'LrId', pinned : 'left',  lockPinned: true, cellClass: 'lock-pinned',sortable: true, filter: true, checkboxSelection: true, resizable: true },
     { headerName: 'Date', field: 'Date', sortable: true, filter: true, resizable: true,
     cellRenderer: (data) => {
       return  formatDate(data.value, 'dd/MM/yyyy', this.locale);
@@ -81,13 +83,16 @@ export class UnloadComponent {
   ngOnInit() {
     this.GetBranchList();
     this.GetShipmentQue()
+    this.noOfRows = Math.round((document.body.clientHeight - 150)/50) -1 ;
   }
 
   onGridReady(params: GridReadyEvent) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
+    if(window.innerWidth > 820){
     params.api.sizeColumnsToFit();
   }
+}
 
   GetShipmentQue() {
     this.shipmentunload = new ShipmentQue();
