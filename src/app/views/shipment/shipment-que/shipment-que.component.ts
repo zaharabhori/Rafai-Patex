@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, Inject, LOCALE_ID, OnInit, ViewChild } from '@angular/core';
 import { AgGridAngular } from 'ag-grid-angular';
-import { GridReadyEvent, GridSizeChangedEvent } from 'ag-grid-community';
+import { ColumnApi, GridApi, GridReadyEvent, GridSizeChangedEvent } from 'ag-grid-community';
 import { Observable } from 'rxjs';
 import { ShipmentQue } from 'src/app/Models/ShipmentQue';
 import { ApiService } from 'src/app/services/api.service';
@@ -17,6 +17,11 @@ export class ShipmentQueComponent implements OnInit {
   rowData: any;
   selectedEntity: any;
   shipmentque:ShipmentQue;
+  gridApi!: GridApi;
+  pageNumber = 10;
+  noOfRows = 0;
+  gridColumnApi!: ColumnApi;
+  domLayout = 'autoHeight'
   columnDefs = [
     { headerName:'Lr Id', field: 'LrId', pinned : 'left',  lockPinned: true, cellClass: 'lock-pinned',sortable: true, filter: true, checkboxSelection: true ,resizable: true},
     { headerName:'Date', field: 'Date', sortable: true, filter: true ,resizable: true,
@@ -40,7 +45,17 @@ export class ShipmentQueComponent implements OnInit {
 
   ngOnInit(): void {
   this.GetShipmentQue()
+  this.noOfRows = Math.round((document.body.clientHeight - 150)/50) -1 ;
   }
+
+  onGridReady(params: GridReadyEvent) {
+    this.gridApi = params.api;
+    this.gridColumnApi = params.columnApi;
+    if(window.innerWidth > 820){
+      params.api.sizeColumnsToFit();
+  }
+}
+
   GetShipmentQue() {
     this.api.GetShipmentdata(this.shipmentque).subscribe(
       (resp: any) => {
@@ -98,9 +113,6 @@ export class ShipmentQueComponent implements OnInit {
    const selectedrows=this.agGrid.api.getSelectedRows();
    console.log('selectedrow', selectedrows);
    }
-   onGridReady(params: GridReadyEvent) {
-    params.api.sizeColumnsToFit();
-    }
   
   onGridSizeChanged(params: GridSizeChangedEvent) {
     params.api.sizeColumnsToFit();

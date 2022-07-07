@@ -414,9 +414,14 @@ export class BookShipmentComponent implements OnInit {
     console.log(clickedIndex)
   }
 
-  onTabActivated(data: TabDirective) {
+  onReviewTab(value){
+
+  }
+
+  onTabActivated(data) {
     this.activeTab = data;
-    if (this.activeTab.heading === "Review & Confirmation") {
+    console.log(this.activeTab)
+    
       // alert('Review & Confirmation')
 
       if (this.IsEditMode) {
@@ -471,15 +476,15 @@ export class BookShipmentComponent implements OnInit {
       this.ReviewForm.controls['FromPickUpDetails'].setValue(this.BookingForm.value.FromCustomerArea);
       this.ReviewForm.controls['ToDeliveryDetails'].setValue(this.BookingForm.value.ToCustomerArea);
 
-    }
-    else if (this.activeTab.heading === "Select Shipment Type") {
+    
+    
       if (this.BookingForm.value.PaymentType.Text == "Paid") {
         this.BookingForm.disable();
         // this.addItems.disable();
         // this.ReviewForm.disable();
       }
 
-    }
+    
 
   }
 

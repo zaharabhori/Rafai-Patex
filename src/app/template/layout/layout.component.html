@@ -1,6 +1,6 @@
 <div class="row1">
     <!-- <button class="custom-btn" (click)="fullwidth()"><img src="./../../../assets/Images/full-screen.png"></button> -->
-    <div class="col-sm-12 header-top">
+    <div class="header-top">
       <!-- <div [ngClass]="{'container':fullWidth}"> -->
         
       <app-header>        
@@ -12,19 +12,15 @@
       <app-sidebar></app-sidebar>
       </div>
     </div> -->
-    <div class="col-sm-12 right-block" style="margin-bottom:70px; 
-    background: #dbf4fb;
-    position: relative;
-    top: -10px;">
+    <div class="right-block" >
       <div [ngClass]="{'container':fullWidth}">
       <router-outlet></router-outlet>
     </div>
     </div>
-    <div class="col-sm-12 footer">
-      <!-- <div [ngClass]="{'container':fullWidth}"> -->
+    <div class="footer-row">
       <app-footer></app-footer>
-      <!-- </div> -->
     </div>
   </div>
+  
   <!-- background: rgb(239,239,237);
     background: linear-gradient(304deg, rgba(239,239,237,1) 0%, rgba(229,198,169,1) 41%, rgba(171,219,227,1) 100%); -->
