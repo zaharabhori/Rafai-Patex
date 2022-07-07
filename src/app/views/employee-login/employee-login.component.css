@@ -1,5 +1,9 @@
-::ng-deep body, html {
-    background-color: #012e49    !important;
+
+::ng-deep body, html {    
+    background: url("./../../../assets/Images/courier-service-industry.jpg") rgba(0,0,0,0.6) !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-blend-mode: multiply;
 }
 
 .login-page{
@@ -16,72 +20,7 @@
     margin-top: 20px;
     margin-bottom: 13px;
 }
-
-@media screen and (max-width: 480px) {
-
-    :ng-deep body {
-        background-position: center !important;
-    }
-
-    .login-container {
-        position: relative;
-        width: 87%;
-        height: 75%;
-        top: 5%;
-        left: 50%;
-        transform: translateX(-50%);
-        margin: 0 !important;
-        padding: 0px !important;
-    }
-
-    .login-intro h1 {
-        font-size: 48px;
-    }
-
-    .login-intro p {
-        font-size: 18px;
-    }
-
-    .emp-login-form h3 {
-        font-size: 21px;
-    }
-
-    .emp-login-form p {
-        font-size: 12px;
-    }
-}
-
-@media screen and (max-width: 480px) {
-
-        .navbar-collapse{
-        position: fixed;
-        top: 100px;
-        width: 100%;
-        background: rgba(0,0,0,0.7);
-        height: 108px;
-    }
-
-    :ng-deep body {
-        background-position: center !important;
-    }
-    
-    .login-container {
-        margin-top: 21%;
-    }
-
-    .form-wraper {
-        margin: 0 auto;
-        width: 90%;
-    }
-}
-
-
-
-/* .navbar {
-    height: 12%;
-    background-color: #caa684;
-    background-image: linear-gradient(to right, #6b4824, #caa684);
-} */
+  
 
 .navbar {
     position: relative;
@@ -91,18 +30,12 @@
     padding-top: 12px;
 }
 
-.navbar span{
-    height: 40px;
-    width: 40px;
-}
-
-
 .navbar .navbar-nav li  a {
     background: none !important;
-    color: #293754;
+    color: #d1ae8a;
     display: inline-block;
     font-size: 18px;
-    line-height: 26px;
+    line-height: 22px;
     padding: 10px 15px;
     position: relative;
     width: 100%;
@@ -110,6 +43,10 @@
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
 
+.navbar span{
+    height: 40px;
+    width: 40px;
+}
 
 .form-inline a {
     color: #134f70 !important;
@@ -118,7 +55,7 @@
     font-weight: 400 !important;
 }
 
-.container {    
+.login-container {    
     position: relative;
     width: 60%;
     height: 65%;
@@ -129,7 +66,7 @@
 }
 
 .login-intro {
-    background: url("./../../../assets/Images/courier-service-industry.jpg") rgba(0,0,0,0.6);
+    background:rgba(0,0,0,0.4);
     background-size: cover;
     background-repeat: no-repeat;
     background-blend-mode: multiply;
@@ -137,22 +74,19 @@
     background-position: center;
 }
 
-
-
-
-
-
 .login-intro h1 {
     color: #d5b190;
     font-family: 'Dancing Script', cursive;
-    font-size: 50px
+    font-size: 50px;
+
 }
 
 .emp-login-form {
     background: #01314b;
-    padding-top: 10%;
+    padding-top: 15%;
     background-image: linear-gradient(to bottom left, #141635, transparent);
 }
+
 
 .emp-login-form h3 {
     color: white;
@@ -213,263 +147,6 @@ input:-webkit-autofill:active {
     border: 1px solid #919090;
 }
 
-::ng-deep .login-input {
-    background-color: transparent !important;
-    border: 0px !important;
-    border-radius: 0px !important;
-    border-bottom: 1px solid white !important;
-    color: white !important;
-    font-size: 20px !important;
-    margin-bottom: 10px;
-}
-
-/* .footer {    
-    background-color: transparent;
-}
-
-.footer p{
-    color: #e0aa81;
-    font-size: 18px;
-} */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.login-wraper {
-    background: #00315d;
-    height: 100vh;
-}
-/* .login-logo {
-    text-align: center;
-    padding: 0;
-    width: 300px;    
-    vertical-align: middle;
-    float: right;
-    line-height: 210px;
-} */
-.form-wraper h3 {
-    text-align: left;
-    margin-bottom: 30px;
-}
-.form-wraper {
-    background: #fff;
-    padding: 50px 40px 80px;
-    border-radius: 0;
-    text-align: center;
-    width: 360px;
-    display: inline-block;
-    vertical-align: middle;
-    position: absolute;
-    top: -33px;
-    font-size: 14px;
-}
-.login-container {
-    max-width: 750px;
-    padding: 30px;
-    background: #1e5c94;
-    margin: 0 auto;
-    position: relative;
-    top: 34%;
-    height: 284px;
-}
-
-.form-control {
-    border-radius: 0;
-    border: none;
-    border-bottom: 1px solid #ccc;
-    padding-left: 28px;
-}
-.form-control.is-invalid {
-    border-color: #dc3545;
-}
-.form-group input:focus {
-    box-shadow: none;
-}
-.form-group {
-    position: relative;
-}
-.form-group span {
-    position: absolute;
-    left: 7px;
-    top: 5px;
-    font-size: 17px;
-}
-
-.form-wraper button {
-    width: 100%;
-    border-radius: 22px;
-    background: #00315d;
-    color: #fff;
-    border: none;
-    padding: 10px;
-    margin-bottom: 12px;
-    
-    
-    /* &:hover {
-        background:#00315d;
-        color:#fff;
-    } */
-}
-
-.erros-msg {
-    color: red;
-    font-size:12px;
-}
-
-.login-logo img {
-    max-width: 312px;
-}
-
-
-
-
-
-::ng-deep body, html {    
-    background: url("./../../../assets/Images/courier-service-industry.jpg") rgba(0,0,0,0.6) !important;
-    background-size: cover !important;
-    background-repeat: no-repeat !important;
-    background-blend-mode: multiply;
-}
-
-.navbar {
-    height: 12%;
-    background-color: #0e1d3b;
-}
-
-.navbar .navbar-nav li  a {
-    background: none !important;
-    color: #d1ae8a;
-    display: inline-block;
-    font-size: 18px;
-    line-height: 26px;
-    padding: 10px 15px;
-    position: relative;
-    width: 100%;
-    margin-right: 20px;
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
-}
-
-.form-inline a {
-    color: #134f70 !important;
-    text-decoration: none;
-    font-size: medium !important;
-    font-weight: 400 !important;
-}
-
-.container {    
-    position: relative;
-    width: 60%;
-    height: 65%;
-    top: 10%;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 0px !important;
-}
-
-.login-intro {
-    background:rgba(0,0,0,0.4);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-blend-mode: multiply;
-    padding-top: 15%;
-    background-position: center;
-}
-
-.login-intro h1 {
-    color: #d5b190;
-    font-family: 'Dancing Script', cursive;
-    font-size: 50px
-}
-
-.cust-login-form {
-    background: #01314b;
-    padding-top: 10%;
-    background-image: linear-gradient(to bottom left, #141635, transparent);
-}
-
-.cust-login-form h3 {
-    color: white;
-}
-
-::ng-deep .mat-form-field-flex {
-    background-color: transparent !important;
-}
-
-::ng-deep.mat-form-field-label {
-    /*change color of label*/
-    color: rgb(255, 255, 255) !important;
-   }
-
-::ng-deep .mat-focused .mat-form-field-label {
-    /*change color of label*/
-    color: rgb(255, 255, 255) !important;
-   }
-  
-::ng-deep .mat-form-field-underline::before {
-    /*change color of underline*/
-    background-color: rgb(255, 255, 255) !important;
-  } 
-  
-  ::ng-deep.mat-form-field-ripple {
-   /*change color of underline when focused*/
-   background-color: rgb(255, 255, 255) !important;;
-  }
-
-.mat-input-element {
-    color: white;
-}
-
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-    transition: background-color 5000s ease-in-out 0s;
-    -webkit-text-fill-color: white !important;
-}
-
-.otp-button, .otp-button:hover {
-    background-color: #caa684;
-    color: #000204;
-    width: 120px;
-    height: 40px;
-    border-radius: 25px;
-    border: 1px solid #e6c6a9;
-}
-
-.otp-button:disabled {
-    background-color: #919090;
-    color: #000204;
-    width: 120px;
-    height: 40px;
-    border-radius: 25px;
-    border: 1px solid #919090;
-}
 
 ::ng-deep .otp-input {
     background-color: transparent !important;
@@ -490,80 +167,147 @@ input:-webkit-autofill:active {
     border: 1px solid #e6c6a9;
 }
 
-.footer {
-    background-color: transparent;
+@media screen and (max-width: 480px) {
+
+    .navbar-collapse{
+        position: fixed;
+        top: 12%;
+        width: 100%;
+        background: rgba(0,0,0,0.7);
+        height: 108px;
+    }
+
+    .psw {
+        margin-top : -15px;
+    }
+
+    :ng-deep body {
+        background-position: center !important;
+    }
+
+    .login-container {
+        position: relative;
+        width: 87%;
+        height: 75%;
+        top: 5%;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 0 !important;
+        padding: 0px !important;
+    }
+
+    .login-intro h1 {
+        font-size: 48px;
+    }
+
+    .login-intro p {
+        font-size: 18px;
+    }
+
+    .emp-login-form h3 {
+        font-size: 21px;
+    }
+
+    .emp-login-form p {
+        font-size: 12px;
+    }
 }
 
-.footer p{
-    color: #e0aa81;
-    font-size: 18px;
-}
-/* }
-.overlay{
-    background-color: rgba(0,0,0,0.5);
-    height: 100%;
-    overflow: hidden;
-} */
+@media (min-width: 450px) and (max-width: 820px) {
 
-/* .login-wraper {
-    background: #00315d;
-    height: 100vh;
-} */
-/* .login-logo {
-    text-align: center;
-    padding: 0;
-    width: 300px;    
-    vertical-align: middle;
-    float: right;
-    line-height: 210px;
-} */
-/* .form-wraper h3 {
-    text-align: left;
-    margin-bottom: 30px;
-}
-.form-wraper {
-    background: #fff;
-    padding: 50px 40px 80px;
-    border-radius: 0;
-    text-align: center;
-    width: 360px;
-    display: inline-block;
-    vertical-align: middle;
-    position: absolute;
-    top: -33px;
-    font-size: 14px;
-}
-.login-container {
-    max-width: 750px;
-    padding: 30px;
-    background: #1e5c94;
-    margin: 0 auto;
-    position: relative;
-    top: 34%;
-    height: 284px;
+    .navbar .container-fluid {
+        padding-right: 0;
+        padding-left: 10px;
+        padding-top: 10px;
+    }
+
+    .navbar-brand img {
+        max-width: 180px;
+    }
+
+    .navbar-collapse{
+        position: fixed;
+        top: 12%;
+        width: 100%;
+        background: rgba(0,0,0,0.7);
+        height: 95px;
+    }
+
+    :ng-deep body {
+        background-position: center !important;
+    }
+
+    .login-container {
+        position: relative;
+        width: 87%;
+        height: 50%;
+        top: 16%;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 0 !important;
+        padding: 0px !important;
+    }
+
+    .login-intro h1 {
+        font-size: 52px;
+    }
+
+    .login-intro p {
+        font-size: 20px;
+    }
+
+    .emp-login-form h3 {
+        font-size: 25px;
+    }
+
+    .emp-login-form p {
+        font-size: 19px;
+    }
 }
 
-.form-control {
-    border-radius: 0;
-    border: none;
-    border-bottom: 1px solid #ccc;
-    padding-left: 28px;
+@media screen and (max-width: 390px) {
+
+    
+    .navbar-collapse{
+        position: fixed;
+        top: 12%;
+        width: 100%;
+        background: rgba(0,0,0,0.7);
+        height: 95px;
+    }
+
+    :ng-deep body {
+        background-position: center !important;
+    }
+
+    .login-container {
+        position: relative;
+        width: 87%;
+        height: 50%;
+        top: 16%;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 0 !important;
+        padding: 0px !important;
+    }
+
+    .login-intro h1 {
+        font-size: 52px;
+    }
+
+    .login-intro p {
+        font-size: 20px;
+    }
+
+    .emp-login-form h3 {
+        font-size: 25px;
+    }
+
+    .emp-login-form p {
+        font-size: 19px;
+    }
 }
-.form-control.is-invalid {
-    border-color: #dc3545;
-}
-.form-group input:focus {
-    box-shadow: none;
-}
-.form-group {
-    position: relative;
-}
-.form-group span {
-    position: absolute;
-    left: 7px;
-    top: 5px;
-    font-size: 17px;
-}
+
 
 .form-wraper button {
     width: 100%;
@@ -573,19 +317,4 @@ input:-webkit-autofill:active {
     border: none;
     padding: 10px;
     margin-bottom: 12px;
-    
-    
-    /* &:hover {
-        background:#00315d;
-        color:#fff;
-    } */
-/* }
-
-.erros-msg {
-    color: red;
-    font-size:12px;
 }
-
-.login-logo img {
-    max-width: 312px;
-} */

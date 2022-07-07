@@ -1,12 +1,14 @@
 <form [formGroup]="LRTrack">
-
+    <div class="search">
     <div class="heading">Enter Lr Number</div>
     <div class="form-group row">
         <input type="text" formControlName="LrId"  class="form-control col-md-6" placeholder="Search.."
             style="width: 100%; padding: 5px; margin: 15px;">
             <button class="btn btn-primary" (click)="TrackShipment()" style="margin: 15px;">Track</button>
-    </div>
-   
+    
+        </div>
+        </div>
+  
   
     <ag-grid-angular 
     #agGrid style="height: auto; margin: 0px;"
@@ -17,6 +19,6 @@
         [pagination]="true" 
         [paginationPageSize]="noOfRows"
         (gridReady)="onGridReady($event)"
-      (gridSizeChanged)="onGridSizeChanged($event)">
+      >
     </ag-grid-angular>
 </form>
