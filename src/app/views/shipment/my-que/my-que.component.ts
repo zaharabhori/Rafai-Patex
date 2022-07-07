@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, Inject, LOCALE_ID, OnInit, ViewChild } from '@angular/core';
+import { AfterContentChecked, AfterViewChecked, ChangeDetectorRef, Component, Inject, LOCALE_ID, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { AgGridAngular } from 'ag-grid-angular';
 import { ShipmentQue } from 'src/app/Models/ShipmentQue';
@@ -19,6 +19,7 @@ export class MyQueComponent implements OnInit {
   shipmentque: ShipmentQue;
   domLayout = 'autoHeight';
   pageNumber = 10;
+  noOfRows = 0;
   gridApi!: GridApi;
   gridColumnApi!: ColumnApi;
 
@@ -46,19 +47,27 @@ export class MyQueComponent implements OnInit {
     },
 
   ];
-  defaultColDef: ColDef = {
-    resizable: true,
-  };
-  constructor(@Inject(LOCALE_ID) private locale: string, private api: ApiService, private httpClient: HttpClient, private myRouter: Router) { }
+  constructor(private cdr:ChangeDetectorRef, @Inject(LOCALE_ID) private locale: string, private api: ApiService, private httpClient: HttpClient, private myRouter: Router) { }
 
   ngOnInit(): void {
-    this.GetShipmentQue()
+    this.GetShipmentQue();
+    this.noOfRows = Math.round((document.body.clientHeight - 150)/50) -1 ;
+      
   }
   onGridReady(params: GridReadyEvent) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
-    params.api.sizeColumnsToFit();
+    if(window.innerWidth > 820){
+      params.api.sizeColumnsToFit();
+    }
+    
   }
+  
+
+  onGridSizeChanged(params){
+    console.log(params)
+  }
+
   GetShipmentQue() {
     this.shipmentque = new ShipmentQue();
 
@@ -80,7 +89,7 @@ export class MyQueComponent implements OnInit {
     console.log('row', event);
     if(event.data.Lrstatus !== 'PICKUP_DONE'){
       this.myRouter.navigateByUrl('/booking/booking/' + event.data.Row_id + '');
-    }
+    };
   }
   // onCellClicked(event: any) { 
   //    console.log("selection", event);
