@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, Inject, LOCALE_ID, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { AgGridAngular } from 'ag-grid-angular';
-import { GridReadyEvent, GridSizeChangedEvent } from 'ag-grid-community';
+import { ColumnApi, GridApi, GridReadyEvent, GridSizeChangedEvent } from 'ag-grid-community';
 import { ShipmentQue } from 'src/app/Models/ShipmentQue';
 import { ApiService } from 'src/app/services/api.service';
 import { formatDate } from '@angular/common';
@@ -16,8 +16,13 @@ export class MyShipmentComponent implements OnInit {
   rowData: any;
   selectedEntity: any;
   shipmentque:ShipmentQue;
+  domLayout = 'autoHeight';
+  noOfRows = 0;
+  gridApi!: GridApi;
+  gridColumnApi!: ColumnApi;
   columnDefs = [
-    { headerName:'Lr Id', field: 'LrId', sortable: true, filter: true, checkboxSelection: true 
+    { headerName:'Lr Id', field: 'LrId', pinned: 'left', lockPinned: true, cellClass: 'lock-pinned',
+    sortable: true, filter: true, checkboxSelection: true 
     ,resizable: true ,
     cellRenderer: params => {
       return `<a (click)="onCellClicked("${params.data}")">${ params.value }</a>`;
@@ -35,6 +40,7 @@ export class MyShipmentComponent implements OnInit {
 
   ngOnInit(): void {
     this.GetMyShipment()
+    this.noOfRows = Math.round((document.body.clientHeight - 150)/50) -1 ;
   }
   GetMyShipment() {
    this.shipmentque = new ShipmentQue();
@@ -59,11 +65,24 @@ export class MyShipmentComponent implements OnInit {
   //    console.log("selection", event);
   //   this.myRouter.navigateByUrl('/booking');
   //  }
-   onGridReady(params: GridReadyEvent) {
-    params.api.sizeColumnsToFit();
-    }
+  //  onGridReady(params: GridReadyEvent) {
+  //   params.api.sizeColumnsToFit();
+  //   }
+
+  onGridReady(params: GridReadyEvent) {
+    this.gridApi = params.api;
+    this.gridColumnApi = params.columnApi;
+    if(window.innerWidth > 820){
+      params.api.sizeColumnsToFit();
+    }    
+  }
   
   onGridSizeChanged(params: GridSizeChangedEvent) {
-    params.api.sizeColumnsToFit();
+    // params.api.sizeColumnsToFit();
+    this.gridApi = params.api;
+    this.gridColumnApi = params.columnApi;
+    if(window.innerWidth > 820){
+      params.api.sizeColumnsToFit();
+    } 
   }
 }

@@ -8,7 +8,15 @@
     </div>
    
   
-    <ag-grid-angular #agGrid style="width: 59%; height: 500px; margin: 0px;" class="ag-theme-alpine" *ngIf="rowData"
-        [rowData]="rowData" [columnDefs]="columnDefs" [pagination]="true" [paginationPageSize]="10">
+    <ag-grid-angular 
+    #agGrid style="height: auto; margin: 0px;"
+     class="ag-theme-alpine" *ngIf="rowData"
+        [rowData]="rowData" 
+        [columnDefs]="columnDefs"
+        [domLayout]="domLayout" 
+        [pagination]="true" 
+        [paginationPageSize]="noOfRows"
+        (gridReady)="onGridReady($event)"
+      (gridSizeChanged)="onGridSizeChanged($event)">
     </ag-grid-angular>
 </form>

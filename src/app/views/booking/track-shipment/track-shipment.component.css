@@ -1,0 +1,13 @@
+@media screen and (max-width: 480px){
+    ag-grid-angular {
+        min-width: 100% !important;
+        /* height: 200px;
+        margin: 0px; */
+        background-color: red;
+    }
+    
+}
+
+ag-grid-angular {
+    width: 59% !important;
+}
