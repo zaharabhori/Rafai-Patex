@@ -1,5 +1,21 @@
- <div class="heading">Select Branch</div>
-<div class="ng-autocomplete" style="width: 100%;">
+ <form class="form-group">
+    <mat-form-field  appearance="fill">
+        <mat-label>Search Branch</mat-label>
+        <input type="text"
+           placeholder="Pick one"
+           aria-label="Number"
+           matInput
+           [formControl]="myControl"
+           [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+              {{option}}
+            </mat-option>
+        </mat-autocomplete>
+        </mat-form-field>
+        <button type="submit"  class="btn btn-primary otp-button" (click)="UnloadSelected()">Unload</button>
+    </form>
+<!-- <div class="ng-autocomplete" style="width: 100%;">
     <ng-autocomplete [data]="data" 
     [searchKeyword]="keyword" 
     (selected)='selectEvent($event)'
@@ -20,7 +36,7 @@
     
 </div> 
 <br/>
-    <button class="btn btn-primary" (click)="UnloadSelected()" >Unload</button> 
+    <button class="btn btn-primary" (click)="UnloadSelected()" >Unload</button>  -->
 
     <ag-grid-angular #agGrid
     style="width: 100%;height: auto; margin-top: 20px;"
