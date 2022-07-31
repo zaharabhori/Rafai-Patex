@@ -1,11 +1,12 @@
 import { HttpClient } from '@angular/common/http';
-import { AfterContentChecked, AfterViewChecked, ChangeDetectorRef, Component, Inject, LOCALE_ID, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { AfterContentChecked, AfterViewChecked, AfterViewInit, ChangeDetectorRef, Component, Inject, LOCALE_ID, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { AgGridAngular } from 'ag-grid-angular';
 import { ShipmentQue } from 'src/app/Models/ShipmentQue';
 import { ApiService } from 'src/app/services/api.service';
 import { formatDate } from '@angular/common';
 import { ColDef, ColumnApi, GridApi, GridReadyEvent } from 'ag-grid-community';
+
 @Component({
   selector: 'app-my-que',
   templateUrl: './my-que.component.html',
@@ -51,16 +52,18 @@ export class MyQueComponent implements OnInit {
 
   ngOnInit(): void {
     this.GetShipmentQue();
-    this.noOfRows = Math.round((document.body.clientHeight - 150)/50) -1 ;
-      
+    if(window.location.href.indexOf("shipment") > -1){
+      this.noOfRows = Math.round((document.body.clientHeight - 150)/50) -1 ; 
+    }
+        
   }
+
   onGridReady(params: GridReadyEvent) {
     this.gridApi = params.api;
     this.gridColumnApi = params.columnApi;
     if(window.innerWidth > 820){
       params.api.sizeColumnsToFit();
-    }
-    
+    }    
   }
   
 

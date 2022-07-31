@@ -8,6 +8,9 @@ import { UnloadComponent } from './unload/unload.component';
 import { AgGridModule } from 'ag-grid-angular';
 import { AutocompleteLibModule } from 'angular-ng-autocomplete';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 @NgModule({
   declarations: [ShipmentQueComponent, MyQueComponent, UnloadComponent],
@@ -16,7 +19,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     ShipmentRoutingModule,
     AgGridModule.withComponents([]),
-    AutocompleteLibModule
+    AutocompleteLibModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatAutocompleteModule
   ],
 })
 export class ShipmentModule { }

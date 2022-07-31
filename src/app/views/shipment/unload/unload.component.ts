@@ -1,13 +1,14 @@
 import { formatDate } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, Inject, LOCALE_ID, ViewChild } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AgGridAngular } from 'ag-grid-angular';
 import { ColumnApi, GridApi, GridReadyEvent, GridSizeChangedEvent } from 'ag-grid-community';
+import { Observable } from 'rxjs';
 import { ShipmentQue } from 'src/app/Models/ShipmentQue';
 import { ApiService } from 'src/app/services/api.service';
-import { ShipmentQueComponent } from '../shipment-que/shipment-que.component';
-
+import {map, startWith} from 'rxjs/operators';
 
 // const states = ['Alabama', 'Alaska', 'American Samoa', 'Arizona', 'Arkansas', 'California', 'Colorado',
 //   'Connecticut', 'Delaware', 'District Of Columbia', 'Federated States Of Micronesia', 'Florida', 'Georgia',
@@ -30,11 +31,14 @@ export class UnloadComponent {
   domLayout = 'autoHeight';
   //keyword = 'Branch';
   keyword = 'Branch';
-  data = [];
+  data: string[] = [];
   pageNumber = 10;
   noOfRows = 0;
   gridApi!: GridApi;
   gridColumnApi!: ColumnApi;
+  myControl = new FormControl('');
+  filteredOptions: Observable<string[]>;
+
   // data = [
   //    {
   //      id: 1,
@@ -84,6 +88,16 @@ export class UnloadComponent {
     this.GetBranchList();
     this.GetShipmentQue()
     this.noOfRows = Math.round((document.body.clientHeight - 150)/50) -1 ;
+    this.filteredOptions = this.myControl.valueChanges.pipe(
+      startWith(''),
+      map(value => this._filter(value || '')),
+    );
+  }
+
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+
+    return this.data.filter(option => option.toLowerCase().includes(filterValue));
   }
 
   onGridReady(params: GridReadyEvent) {
@@ -114,7 +128,9 @@ export class UnloadComponent {
       (resp: any) => {
         console.log(resp);
         this.shipmentunload = resp;
-        this.data = resp;
+        resp.forEach(element => {
+          this.data.push(element.Branch);
+        });
 
       },
       (err) => {

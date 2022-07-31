@@ -1,13 +1,13 @@
+<div class="full-page">
 <form [formGroup]="LRTrack">
-    <div class="search">
-    <div class="heading">Enter Lr Number</div>
-    <div class="form-group row">
-        <input type="text" formControlName="LrId"  class="form-control col-md-6" placeholder="Search.."
-            style="width: 100%; padding: 5px; margin: 15px;">
-            <button class="btn btn-primary" (click)="TrackShipment()" style="margin: 15px;">Track</button>
-    
+        <div class="form-group">
+            <mat-form-field  appearance="fill">
+                <mat-label>Enter LR Number</mat-label>
+                <input formControlName="LrId" matInput>
+                </mat-form-field>
+                <button type="submit" [disabled]="LRTrack.invalid" class="btn btn-primary otp-button" (click)="TrackShipment()">Track</button>
         </div>
-        </div>
+       
   
   
     <ag-grid-angular 
@@ -23,3 +23,4 @@
       >
     </ag-grid-angular>
 </form>
+</div>
