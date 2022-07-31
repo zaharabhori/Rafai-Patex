@@ -42,4 +42,36 @@
       height: 206px;
       margin-left: -15px;
   }
+
+  .navbar span {
+    /* color: white; */
+    display: block;
+    width: 25px;
+    height: 10px;
+    border-top: 2px solid #d1ae8a;
+}
+}
+
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+
+    .navbar-collapse{
+        position: fixed;
+        top: 12%;
+        width: 100%;
+        background: rgba(0,0,0,0.7);
+        height: 206px;
+        margin-left: -15px;
+    }
+  
+    .navbar span {
+      /* color: white; */
+      display: block;
+      width: 25px;
+      height: 10px;
+      border-top: 2px solid #d1ae8a;
+  }
+
 }

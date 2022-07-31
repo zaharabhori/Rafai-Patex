@@ -5,9 +5,39 @@
         margin: 0px; */
         background-color: red;
     }
+
+    ::ng-deep .ag-theme-alpine .ag-layout-auto-height .ag-center-cols-clipper, 
+    .ag-theme-alpine .ag-layout-auto-height .ag-center-cols-container,
+    .ag-theme-alpine .ag-layout-print .ag-center-cols-clipper, 
+    .ag-theme-alpine .ag-layout-print .ag-center-cols-container {
+        min-height: 0px !important;
+    }
     
 }
+
+@media only screen 
+  and (min-width: 768px) 
+   {
+
+    ag-grid-angular {
+        min-width: 80% !important;
+        /* height: 200px;
+        margin: 0px; */
+        background-color: red;
+    }
+
+}
+
 
 ag-grid-angular {
     width: 59% !important;
 }
+
+::ng-deep .ag-theme-alpine .ag-layout-auto-height .ag-center-cols-clipper, 
+    .ag-theme-alpine .ag-layout-auto-height .ag-center-cols-container,
+    .ag-theme-alpine .ag-layout-print .ag-center-cols-clipper, 
+    .ag-theme-alpine .ag-layout-print .ag-center-cols-container {
+        min-height: 0px !important;
+    }
+
+    /* 22ABD000070 */
