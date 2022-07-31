@@ -1,5 +1,5 @@
 import { Component, Inject, LOCALE_ID, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Form, FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AgGridAngular } from 'ag-grid-angular';
 import { ShipmentQue } from 'src/app/Models/ShipmentQue';
@@ -12,6 +12,7 @@ import { ColumnApi, GridApi, GridReadyEvent, GridSizeChangedEvent } from 'ag-gri
   styleUrls: ['./track-shipment.component.css']
 })
 export class TrackShipmentComponent implements OnInit {
+  trackShpmtForm: FormGroup;
   LRTrack: FormGroup;
   ShipmentQue: ShipmentQue;
   @ViewChild('agGrid') agGrid: AgGridAngular;
@@ -75,5 +76,3 @@ export class TrackShipmentComponent implements OnInit {
     } 
   }
 }
-
-

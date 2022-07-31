@@ -1,5 +1,23 @@
+.form-group {
+    margin-top: 30px;
+}
 
-::ng-deep body{
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex{
+    background-color: transparent !important;
+    color: black;
+}
+
+button, button:hover {
+    margin-left: 10px;
+    background-color: #1a2b4c;
+    color: #e6c6a9;
+    width: 120px;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid #1a2b4c;
+}
+
+body{
     background-color: #e4d1bc  !important;
 }
 

@@ -1,4 +1,4 @@
-::ng-deep body, html {
+.login-page {
     background: url("./../../../assets/Images/courier-service-industry.jpg") rgba(0,0,0,0.6) !important;
     background-size: cover !important;
     background-repeat: no-repeat !important;

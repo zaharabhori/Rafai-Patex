@@ -12,6 +12,7 @@ export class HeaderComponent implements OnInit {
   Customer = 'Admin';
   userId:any;  
   collapsed = true;
+  mobileView = false;
 
   constructor( public router: Router,private api: ApiService) { }
 
@@ -19,6 +20,12 @@ export class HeaderComponent implements OnInit {
     this.UserName =localStorage.getItem('UserName');
     this.userId = localStorage.getItem('UserID');
     this.Customer =localStorage.getItem('Mobile');
+    if(window.innerWidth < 830){
+      this.mobileView = true
+    }
+    else{
+      this.mobileView = false
+    }
     
   }
 
