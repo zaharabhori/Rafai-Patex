@@ -28,19 +28,30 @@
                         <article class="card-body ">
                             <form>
                                 <div class="form-check ">
-                                    <input class="form-check-input" type="radio" formControlName="booking_category"
+                                    <!-- <input class="form-check-input" type="radio" formControlName="booking_category"
                                         value="Baggage_Booking" checked>
                                     <label class="form-check-label" for="customRadio1">
                                         EXCESS /PERSONELL /UNACCOMPANIED BAGGAGE BOOKING
                                         Starting from Rs.200/- per kg
-                                    </label>
+                                    </label> -->
+                                    <mat-radio-group formControlName="booking_category" aria-label="Select an option">
+                                        <label for="customRadio1"></label>
+                                        <mat-radio-button value="Baggage_Booking">EXCESS /PERSONELL /UNACCOMPANIED BAGGAGE BOOKING<br>
+                                            Starting from Rs.200/- per kg</mat-radio-button>
+                                        <!-- <mat-radio-button value="0">Female</mat-radio-button> -->
+
+                                        
+                                        <mat-radio-button value="Cargo_Booking">CARGO BOOKING Starting 
+                                            from Rs.6/- per kg</mat-radio-button>
+                                    </mat-radio-group>
                                 </div>
-                                <div class="form-check ">
+                                <!-- <div class="form-check ">
                                     <input class="form-check-input" type="radio" formControlName="booking_category"
                                         value="Cargo_Booking">
                                     <label class="form-check-label" for="customRadio2">CARGO BOOKING Starting
                                         from Rs.6/- per kg</label>
-                                </div>
+                                        
+                                </div> -->
                             </form>
                         </article>
 
@@ -471,8 +482,7 @@
                                 <div class="form-row">
                                     <div class="col form-group">
                                         <label>LandMark <span class="text-danger">*</span></label>
-                                          <input type="text" formControlName="tolandmark" class="form-control" placeholder="
-                                            To LandMark"
+                                          <input type="text" formControlName="tolandmark" class="form-control" placeholder="To LandMark"
                                             [ngClass]="{ 'is-invalid': f.tolandmark.errors && (f.tolandmark.dirty || f.tolandmark.touched) }"
                                               />
                                                                             
