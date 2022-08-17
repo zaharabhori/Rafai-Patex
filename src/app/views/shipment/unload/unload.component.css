@@ -22,12 +22,12 @@ body{
 }
 
 ::ng-deep .ag-header {
-    background-color: #c0a78d !important;
+    background-color: #c7b29d !important;
 }
 
-::ng-deep .ag-row {
+/* ::ng-deep .ag-row {
     background-color: #d6d6d6 !important;
-}
+} */
 
 @media screen and (max-width: 480px) {
 
